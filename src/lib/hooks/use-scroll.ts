@@ -39,7 +39,7 @@ export function useScrollToBottom(
   return { isAtBottom, scrollToBottom };
 }
 
-export function useScrollThreshold(threshold: number = 350): boolean {
+export function useScrollThreshold(threshold: number = 50): boolean {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
