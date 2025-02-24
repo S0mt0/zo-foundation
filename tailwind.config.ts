@@ -57,6 +57,11 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
+      screens: {
+        xs: "520px",
+        ls: { raw: "(max-width: 767px) and (orientation: landscape)" },
+      },
     },
   },
   plugins: [animate],

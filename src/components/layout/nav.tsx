@@ -56,7 +56,7 @@ export const Navbar = () => {
 
         <Link
           href="/donate"
-          className="h-full bg-[#e1ba38] hover:bg-[#f8d152] px-6 md:px-8 flex items-center justify-center font-bold text-green-700 hover:text-green-600 transition-all text-xl"
+          className="h-full bg-[#e1ba38] hover:bg-[#f8d152] px-6 md:px-8 flex items-center justify-center font-semibold sm:font-bold text-green-700 hover:text-green-600 transition-all text-lg xs:text-xl"
         >
           Donate
         </Link>
@@ -78,6 +78,7 @@ export const Navbar = () => {
                   <Link
                     href={href}
                     className="hover:text-[#e1ba38] transition-colors w-full block"
+                    onClick={() => setTimeout(() => toggle(), 2000)}
                   >
                     {label}
                   </Link>

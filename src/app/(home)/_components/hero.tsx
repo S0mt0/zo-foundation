@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { features } from "./hero-features";
 
 export const Hero = () => {
   const heroImages = [
@@ -23,7 +24,7 @@ export const Hero = () => {
 
   return (
     <header
-      className="h-screen bg-green-700 bg-center bg-cover bg-no-repeat relative w-full overflow-hidden max-h-[1140px] p-6"
+      className="min-h-screen bg-green-700 bg-center bg-cover bg-no-repeat overflow-hidden relative w-full p-6"
       style={{
         backgroundImage: `url(${heroImages[currentImageIndex]})`,
       }}
@@ -41,13 +42,35 @@ export const Hero = () => {
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/60" />
-      <div className="isolate flex flex-col justify-center  text-white pt-36">
-        <h1 className="text-5xl max-w-2xl font-extrabold">
-          Transforming Lives, <br /> One Community at a Time
+      <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:pt-20 mb-20 text-center">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          EMPOWERING
+          <br />
+          COMMUNITIES FOR
+          <br />
+          CHANGE
         </h1>
-        <p className="text-orange-400 mt-2">
-          Empowering youth and women to lead, thrive, and inspire.
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          Dedicated to empowering communities and promoting sustainable
+          development. Join us in our mission to create positive change and
+          build a better future for all.
         </p>
+      </div>
+
+      {/* Grid Section */}
+      <div className="isolate grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
+        {features.map((feat) => (
+          <div
+            key={feat.heading}
+            className="bg-white/10 backdrop-blur-lg p-8 rounded-xl text-center border border-white/20 hover:bg-white/20 transition"
+          >
+            <feat.icon className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-white mb-2">
+              {feat.heading}
+            </h3>
+            <p className="text-gray-300">{feat.desc}</p>
+          </div>
+        ))}
       </div>
     </header>
   );
