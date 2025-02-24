@@ -43,14 +43,14 @@ export const Hero = () => {
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/60" />
       <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:pt-20 mb-20 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-3xl xs:text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
           EMPOWERING
           <br />
           COMMUNITIES FOR
           <br />
           CHANGE
         </h1>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <p className="text-lg xs:text-xl text-gray-300 max-w-2xl mx-auto">
           Dedicated to empowering communities and promoting sustainable
           development. Join us in our mission to create positive change and
           build a better future for all.
@@ -64,8 +64,8 @@ export const Hero = () => {
             key={feat.heading}
             className="bg-white/10 backdrop-blur-lg p-8 rounded-xl text-center border border-white/20 hover:bg-white/20 transition"
           >
-            <feat.icon className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">
+            <feat.icon className="h-10 w-10 xs:h-12 xs:w-12 text-emerald-400 mx-auto mb-4" />
+            <h3 className="text-lg xs:text-xl font-bold text-white mb-2">
               {feat.heading}
             </h3>
             <p className="text-gray-300">{feat.desc}</p>
