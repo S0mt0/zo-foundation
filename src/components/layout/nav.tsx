@@ -1,34 +1,98 @@
 "use client";
-import { motion } from "framer-motion";
-
-import { useScrollThreshold } from "@/lib/hooks";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useToggle } from "usehooks-ts";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { navLinks } from "./nav-links";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
-  const hasScrolled = useScrollThreshold();
+  const pathname = usePathname();
+  const [toggled, toggle] = useToggle();
 
   return (
-    <motion.header
-      initial={{ y: "-100%" }}
-      animate={{ y: hasScrolled ? "0%" : "-100%" }}
-      transition={{ type: "tween", duration: 0.4, ease: "easeOut" }}
-      className={cn(
-        "fixed top-0 left-0 w-full bg-green-800 h-16 text-white shadow-lg"
-      )}
-    >
-      <nav className="h-full flex items-center px-6">
-        <Link href="/">
-          <Image
-            src="/assets/img/zof-logo.png"
-            height={60}
-            width={60}
-            alt="logo"
-            className="object-center"
-          />
+    <div className="bg-green-800 text-white shadow-lg z-50 relative">
+      <nav className="h-[70px] flex items-center justify-between pl-6 gap-8">
+        <div className="flex gap-6 h-full items-center justify-center">
+          <button className="flex md:hidden" onClick={toggle}>
+            {toggled ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+          </button>
+
+          <Link href="/">
+            <Image
+              src="/assets/img/zof-logo.png"
+              height={63}
+              width={63}
+              alt="@zof-logo"
+              priority
+              className="dark:invert"
+            />
+          </Link>
+        </div>
+        <ul className="gap-8 items-center h-full hidden md:flex">
+          {navLinks.map(({ href, label }) => (
+            <li
+              key={href}
+              className="h-full flex items-center justify-center relative"
+            >
+              <Link
+                href={href}
+                className="hover:text-[#e1ba38] transition-colors text-sm"
+              >
+                {label}
+              </Link>
+              <div
+                className={cn(
+                  "absolute bottom-0 h-1 bg-[#e1ba38] w-full hidden",
+                  href === pathname && "block"
+                )}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          href="/donate"
+          className="h-full bg-[#e1ba38] hover:bg-[#f8d152] px-6 md:px-8 flex items-center justify-center font-bold text-green-700 hover:text-green-600 transition-all text-xl"
+        >
+          Donate
         </Link>
       </nav>
-    </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {toggled && (
+          <motion.div
+            initial={{ maxHeight: 0 }}
+            animate={{ maxHeight: "100vh" }}
+            exit={{ maxHeight: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute bottom-0 translate-y-full w-full bg-green-800 p-10 md:hidden overflow-hidden"
+          >
+            <ul className="gap-6 items-center h-full flex flex-col w-full">
+              {navLinks.map(({ href, label }) => (
+                <li key={href} className="relative pl-4 w-full">
+                  <Link
+                    href={href}
+                    className="hover:text-[#e1ba38] transition-colors w-full block"
+                  >
+                    {label}
+                  </Link>
+                  <div
+                    className={cn(
+                      "absolute left-0 w-1 bg-[#e1ba38] h-full hidden -bottom-1/2 -translate-y-1/2",
+                      href === pathname && "block"
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
