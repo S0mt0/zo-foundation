@@ -24,7 +24,7 @@ export const Hero = () => {
 
   return (
     <header
-      className="h-screen bg-green-700 bg-center bg-cover bg-no-repeat overflow-hidden relative w-full p-6 max-h-[700px]"
+      className="h-screen bg-green-700 bg-center bg-cover bg-no-repeat overflow-hidden relative w-full p-6 md:px-14 max-h-[700px]"
       style={{
         backgroundImage: `url(${heroImages[currentImageIndex]})`,
       }}

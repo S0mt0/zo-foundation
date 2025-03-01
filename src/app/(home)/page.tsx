@@ -1,5 +1,6 @@
 import { FixedSocials } from "./_components/fixed-socials";
 import { Hero } from "./_components/hero";
+import { OurValues } from "./_components/our-values";
 import { SupportOurCause } from "./_components/support-our-cause-banner";
 import { WhoWeAre } from "./_components/who-we-are";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <FixedSocials />
       <Hero />
       <WhoWeAre />
+      <OurValues />
       <SupportOurCause />
     </main>
   );
