@@ -1,10 +1,10 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-// import { features } from "./hero-features";
 
 export const Hero = () => {
   const heroImages = [
+    "/assets/img/child_group.jpg",
     "/assets/img/zof_empower_youth.jpg",
     "/assets/img/zof_groupie_01.jpg",
     "/assets/img/zof_led_community.jpg",
@@ -43,34 +43,31 @@ export const Hero = () => {
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/60" />
       <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:pt-20 text-center">
-        <h1 className="text-3xl xs:text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+        <motion.h1
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-3xl xs:text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+        >
           EMPOWERING
           <br />
           COMMUNITIES FOR
           <br />
           CHANGE
-        </h1>
-        <p className="text-lg xs:text-xl text-gray-300 max-w-2xl mx-auto">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, x: -200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-lg xs:text-xl text-gray-300 max-w-2xl mx-auto"
+        >
           Dedicated to empowering communities and promoting sustainable
           development. Join us in our mission to create positive change and
           build a better future for all.
-        </p>
+        </motion.p>
       </div>
-      {/* Grid Section
-      <div className="isolate grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
-        {features.map((feat) => (
-          <div
-            key={feat.heading}
-            className="bg-white/10 backdrop-blur-lg p-8 rounded-xl text-center border border-white/20 hover:bg-white/20 transition"
-          >
-            <feat.icon className="h-10 w-10 xs:h-12 xs:w-12 text-emerald-400 mx-auto mb-4" />
-            <h3 className="text-lg xs:text-xl font-bold text-white mb-2">
-              {feat.heading}
-            </h3>
-            <p className="text-gray-300">{feat.desc}</p>
-          </div>
-        ))}
-      </div> */}
     </header>
   );
 };

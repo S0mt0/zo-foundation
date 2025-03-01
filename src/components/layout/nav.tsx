@@ -56,7 +56,7 @@ export const Navbar = () => {
 
         <Link
           href="/donate"
-          className="h-full bg-[#e1ba38] hover:bg-[#f8d152] px-5 md:px-6 flex items-center justify-center font-semibold text-green-800 hover:text-green-600 transition-all text-lg xs:text-xl gap-1.5"
+          className="h-full bg-yellow-500 hover:bg-[#f8d152] px-5 md:px-6 flex items-center justify-center font-semibold text-green-800 hover:text-green-600 transition-all text-lg xs:text-xl gap-1.5"
         >
           Donate
         </Link>

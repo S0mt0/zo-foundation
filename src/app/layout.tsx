@@ -3,8 +3,9 @@ import { Montserrat } from "next/font/google";
 
 import "./globals.css";
 import { jsonLd, seoMetadata } from "@/lib/seo";
-import { Navbar } from "@/components/layout/nav";
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/layout/nav";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = seoMetadata;
 
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={cn("antialiased", montserrat.className)}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

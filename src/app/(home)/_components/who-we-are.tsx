@@ -1,16 +1,30 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const WhoWeAre = () => {
   return (
-    <section className="p-6 md:px-14 bg-gray-50 pb-24">
+    <section className="py-20 px-6 md:px-14 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2
-          className="text-2xl xs:text-3xl font-semibold text-center bg-center bg-no-repeat mt-16 mb-10 text-gray-900 px-6 py-2 capitalize whitespace-nowrap"
+        <motion.h2
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-xl xs:text-2xl font-semibold text-center bg-center bg-no-repeat mb-10 text-gray-900 px-6 py-2 capitalize whitespace-nowrap"
           style={{ backgroundImage: 'url("/assets/img/button-stroke.svg")' }}
         >
           Who we are
-        </h2>
-        <p className="text-center text-muted-foreground max-w-3xl mx-auto">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-center text-muted-foreground max-w-3xl mx-auto"
+        >
           At the Zita-Onyeka Foundation, we believe in the power of community,
           the potential of youth, and the strength of women. Founded with a
           vision to create lasting change, we are a non-profit organization
@@ -25,7 +39,7 @@ export const WhoWeAre = () => {
           >
             READ MORE
           </Link>
-        </p>
+        </motion.p>
       </div>
     </section>
   );
