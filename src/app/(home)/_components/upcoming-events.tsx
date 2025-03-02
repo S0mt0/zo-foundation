@@ -46,7 +46,7 @@ export const UpcomingEvents = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex col-span-4 p-12 gap-8">
+              <div className="flex col-span-4 p-8 xs:p-10 md:p-12 gap-8">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-orange-600/70 mb-2 uppercase">
                     Community Food Drive
