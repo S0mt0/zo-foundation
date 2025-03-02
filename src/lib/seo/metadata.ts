@@ -104,11 +104,11 @@ export const seoMetadata: Metadata = {
     images: [`${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`],
   },
 
-  other: {
-    "og:image:width": "1200",
-    "og:image:height": "630",
-    "cache-control": "no-cache, no-store, must-revalidate",
-    pragma: "no-cache",
-    expires: "0",
-  },
+  // other: {
+  //   "og:image:width": "1200",
+  //   "og:image:height": "630",
+  //   "cache-control": "no-cache, no-store, must-revalidate",
+  //   pragma: "no-cache",
+  //   expires: "0",
+  // },
 };
