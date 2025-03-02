@@ -23,12 +23,11 @@ export const Navbar = () => {
 
           <Link href="/">
             <Image
-              src="/assets/img/zof-logo.png"
+              src="/assets/seo/zof-logo.png"
               height={63}
               width={63}
               alt="@zof-logo"
               priority
-              className="dark:invert"
             />
           </Link>
         </div>
@@ -78,7 +77,7 @@ export const Navbar = () => {
                   <Link
                     href={href}
                     className="hover:text-[#e1ba38] transition-colors w-full block"
-                    onClick={() => setTimeout(() => toggle(), 2000)}
+                    onClick={() => setTimeout(() => toggle(), 500)}
                   >
                     {label}
                   </Link>

@@ -6,7 +6,7 @@ const VERSION = Date.now();
 
 export const seoMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "Zita Onyeka Foundation | Empowering Women, Youth, and Communities",
+  title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
   description:
     "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
 
@@ -30,7 +30,9 @@ export const seoMetadata: Metadata = {
   },
 
   keywords: [
+    "Zita Onyeka",
     "Zita Onyeka Foundation",
+    "Zita-Onyeka Foundation",
     "Empower women",
     "Youth development",
     "Community development",
@@ -59,8 +61,8 @@ export const seoMetadata: Metadata = {
 
   authors: [{ name: "Zita Onyeka", url: BASE_URL }],
   category: "Non-Profit & Community Development",
-  creator: "Zita Onyeka",
-  publisher: "Zita Onyeka",
+  creator: "Zita-Onyeka Foundation",
+  publisher: "Zita-Onyeka Foundation",
 
   robots: {
     index: true,
@@ -78,37 +80,35 @@ export const seoMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: BASE_URL,
-    siteName: "Zita Onyeka Foundation",
-    title: "Zita Onyeka Foundation | Empowering Women, Youth, and Communities",
+    siteName: "Zita-Onyeka Foundation",
+    title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
     description:
       "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
     images: [
       {
-        url: `${BASE_URL}/og-image.png?v=${VERSION}`,
+        url: `${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`,
         width: 1200,
         height: 630,
-        alt: "Zita Onyeka Foundation - Empowering Women, Youth, and Communities",
+        alt: "Zita-Onyeka Foundation - Empowering Women, Youth, and Communities",
         type: "image/png",
       },
     ],
   },
 
   twitter: {
-    card: "summary_large_image",
-    title: "Zita Onyeka Foundation | Empowering Women, Youth, and Communities",
+    card: "summary",
+    title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
     description:
       "Join the Zita-Onyeka Foundation in empowering women, youth, and communities through education, skill development, and sustainable initiatives.",
     creator: "@ZitaOnyekaFdn",
-    images: [`${BASE_URL}/og-image.png?v=${VERSION}`],
+    images: [`${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`],
   },
 
-  // other: {
-  //   "telegram:channel": "@ZitaOnyekaFdn",
-  //   "og:image:width": "1200",
-  //   "og:image:height": "630",
-  //   // Force no-cache headers
-  //   "cache-control": "no-cache, no-store, must-revalidate",
-  //   pragma: "no-cache",
-  //   expires: "0",
-  // },
+  other: {
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "cache-control": "no-cache, no-store, must-revalidate",
+    pragma: "no-cache",
+    expires: "0",
+  },
 };

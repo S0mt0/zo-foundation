@@ -7,10 +7,10 @@ export const jsonLd: WithContext<Organization> = {
   "@type": "Organization",
   name: "Zita-Onyeka Foundation",
   url: BASE_URL,
-  logo: `${BASE_URL}/logo.png`,
+  logo: `${BASE_URL}/assets/seo/zof_logo.png`,
   description:
     "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
-  image: `${BASE_URL}/og-image.png`,
+  image: `${BASE_URL}/assets/seo/og-image.png`,
   foundingDate: "2020",
   email: "onyekazita@gmail.com",
   telephone: "+234 803 786 4683",
@@ -22,11 +22,7 @@ export const jsonLd: WithContext<Organization> = {
     postalCode: "900247",
     addressCountry: "Nigeria",
   },
-  sameAs: [
-    "https://facebook.com/zitaonyekafoundation",
-    "https://twitter.com/zitaonyekafdn",
-    "https://instagram.com/zitaonyekafoundation",
-  ],
+  sameAs: [BASE_URL],
   keywords: [
     "Zita-Onyeka Foundation",
     "Empower women",
