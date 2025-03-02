@@ -6,7 +6,7 @@ const VERSION = Date.now();
 
 export const seoMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
+  title: "Welcome | Zita-Onyeka Foundation (ZOF)",
   description:
     "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
 
@@ -80,7 +80,7 @@ export const seoMetadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: BASE_URL,
-    siteName: "Zita-Onyeka Foundation",
+    siteName: "Zita-Onyeka Foundation (ZOF)",
     title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
     description:
       "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
@@ -89,7 +89,7 @@ export const seoMetadata: Metadata = {
         url: `${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`,
         width: 1200,
         height: 630,
-        alt: "Zita-Onyeka Foundation - Empowering Women, Youth, and Communities",
+        alt: "Zita-Onyeka Foundation (ZOF)",
         type: "image/png",
       },
     ],
@@ -97,7 +97,7 @@ export const seoMetadata: Metadata = {
 
   twitter: {
     card: "summary",
-    title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
+    title: "Zita-Onyeka Foundation (ZOF)",
     description:
       "Join the Zita-Onyeka Foundation in empowering women, youth, and communities through education, skill development, and sustainable initiatives.",
     creator: "@ZitaOnyekaFdn",

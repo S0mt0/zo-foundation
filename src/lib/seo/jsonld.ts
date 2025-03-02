@@ -5,9 +5,9 @@ import { BASE_URL } from "../constants";
 export const jsonLd: WithContext<Organization> = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Zita-Onyeka Foundation",
+  name: "Zita-Onyeka Foundation (ZOF)",
   url: BASE_URL,
-  logo: `${BASE_URL}/assets/seo/zof_logo.png`,
+  logo: `${BASE_URL}/assets/seo/zof-logo.png`,
   description:
     "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
   image: `${BASE_URL}/assets/seo/og-image.png`,
@@ -24,6 +24,8 @@ export const jsonLd: WithContext<Organization> = {
   },
   sameAs: [BASE_URL],
   keywords: [
+    "Zita Onyeka",
+    "Zita Onyeka Foundation",
     "Zita-Onyeka Foundation",
     "Empower women",
     "Youth development",
