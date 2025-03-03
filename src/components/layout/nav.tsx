@@ -77,7 +77,7 @@ export const Navbar = () => {
                   <Link
                     href={href}
                     className="hover:text-[#e1ba38] transition-colors w-full block"
-                    onClick={() => setTimeout(() => toggle(), 500)}
+                    onClick={() => setTimeout(() => toggle(), 100)}
                   >
                     {label}
                   </Link>
