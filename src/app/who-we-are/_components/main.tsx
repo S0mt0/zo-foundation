@@ -74,7 +74,7 @@ export const Main = () => {
         </div>
 
         <div className="md:col-span-4 relative">
-          <div className="sticky top-10 gap-12 flex flex-col-reverse md:flex-col">
+          <div className="md:sticky top-10 gap-12 flex flex-col-reverse md:flex-col">
             <QuickCTALinks />
             <SocialShareButtons title="Learn about the Zita-Onyeka Foundation’s mission, vision, and values. Discover how we empower women, youth, and communities through education, skill development, and sustainable initiatives." />
           </div>

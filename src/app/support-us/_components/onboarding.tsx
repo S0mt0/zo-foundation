@@ -1,6 +1,6 @@
 import { QuickCTALinks } from "@/components/common/quick-cta-links";
 import { SocialShareButtons } from "@/components/common/social-share-buttons";
-import { SupportForm } from "./form";
+import { Form } from "@/components/common/contact-form";
 
 export const Onboarding = () => {
   return (
@@ -75,7 +75,7 @@ export const Onboarding = () => {
               you! Reach out to us to get started or to learn more about
               volunteer opportunities.
             </p>
-            <SupportForm />
+            <Form />
           </div>
         </div>
 

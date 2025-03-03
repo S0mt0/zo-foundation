@@ -12,7 +12,7 @@ export const TeamMember = ({
   description?: string;
 }) => {
   return (
-    <div className="shadow overflow-hidden hover:shadow-md w-full max-w-sm border text-sm">
+    <div className="shadow overflow-hidden hover:shadow-md transition-shadow duration-200 w-full max-w-sm border text-sm">
       <Image
         src={imgUrl}
         priority
@@ -22,7 +22,7 @@ export const TeamMember = ({
         className="w-full h-72 object-center"
       />
       <div className="p-4 bg-white text-center">
-        <h4 className="capitalize font-bold">{name}</h4>
+        <strong className="capitalize">{name}</strong>
         <div>{role}</div>
         <p className="mt-1.5">{description}</p>
       </div>

@@ -1,15 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 
-export const SupportForm = () => {
+export const Form = ({
+  onSubmit = (e) => {
+    e?.preventdefault();
+  },
+}: {
+  onSubmit?: (e?: any) => Promise<void> | void;
+}) => {
   return (
-    <form className="space-y-4" onSubmit={() => console.log("Submitted")}>
+    <form className="space-y-4" onSubmit={onSubmit}>
       <div className="flex flex-col gap-2">
         <label className="font-semibold" htmlFor="name">
           Name <span className="text-orange-300">*</span>
         </label>
         <input
+          required
           type="text"
           id="name"
           className="px-3 py-1.5 text-base rounded border border-gray-400/70"
@@ -20,14 +28,26 @@ export const SupportForm = () => {
           Email <span className="text-orange-300">*</span>
         </label>
         <input
+          required
           type="email"
           id="email"
           className="px-3 py-1.5 text-base rounded border border-gray-400/70"
         />
       </div>
       <div className="flex flex-col gap-2">
+        <label className="font-semibold" htmlFor="phone">
+          Phone <span className="text-orange-300">*</span>
+        </label>
+        <input
+          required
+          type="text"
+          id="phone"
+          className="px-3 py-1.5 text-base rounded border border-gray-400/70"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
         <label className="font-semibold" htmlFor="subject">
-          Subject <span className="text-orange-300">*</span>
+          Subject
         </label>
         <input
           type="subject"
@@ -40,6 +60,7 @@ export const SupportForm = () => {
           Message <span className="text-orange-300">*</span>
         </label>
         <textarea
+          required
           id="message"
           className="px-3 py-1.5 text-base rounded border border-gray-400/70 h-32"
         />
