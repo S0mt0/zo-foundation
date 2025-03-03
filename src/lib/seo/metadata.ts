@@ -6,9 +6,13 @@ const VERSION = Date.now();
 
 export const seoMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "Welcome | Zita-Onyeka Foundation (ZOF)",
+  title: {
+    default:
+      "Zita-Onyeka Foundation (ZOF) | Non-Profit Empowering Women, Youth, and Communities",
+    template: "%s | Zita-Onyeka Foundation (ZOF)",
+  },
   description:
-    "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
+    "The Zita-Onyeka Foundation is a non-profit organization dedicated to empowering women, youth, and communities in Nigeria. Join us in creating sustainable change through education, skill development, and community initiatives.",
 
   icons: {
     icon: [
@@ -67,9 +71,11 @@ export const seoMetadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -83,7 +89,7 @@ export const seoMetadata: Metadata = {
     siteName: "Zita-Onyeka Foundation (ZOF)",
     title: "Zita-Onyeka Foundation | Empowering Women, Youth, and Communities",
     description:
-      "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
+      "The Zita-Onyeka Foundation is a non-profit organization dedicated to empowering women, youth, and communities in Nigeria. Join us in creating sustainable change through education, skill development, and community initiatives.",
     images: [
       {
         url: `${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`,

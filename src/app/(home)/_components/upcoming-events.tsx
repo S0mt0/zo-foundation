@@ -21,7 +21,7 @@ export const UpcomingEvents = () => {
 
         <div className="pt-5 xs:pt-8">
           <div className="grid grid-cols-1 md:grid-cols-10 gap-10">
-            <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-6 bg-neutral-50 shadow-md rounded-md hover:shadow-lg transition overflow-hidden">
+            <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-6 bg-neutral-50 shadow-md rounded-md hover:shadow-lg transition duration-200 overflow-hidden group">
               <div className="relative col-span-2">
                 <Image
                   width={400}
@@ -31,7 +31,7 @@ export const UpcomingEvents = () => {
                   className="w-full h-60 md:h-full object-center object-cover"
                 />
 
-                <div className="absolute p-6 inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
+                <div className="absolute p-6 inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-200 flex flex-col items-center justify-center text-white">
                   <div className="shrink-0 w-fit p-2 flex flex-col items-center justify-center">
                     <div className="text-5xl font-bold mb-1.5">16</div>
                     <div className="uppercase font-bold text-sm">
@@ -46,7 +46,7 @@ export const UpcomingEvents = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex col-span-4 px-4 py-8 xs:p-10 md:p-12 gap-8">
+              <div className="flex col-span-4 px-4 py-8 ls:px-4 ls:py-8 xs:p-10 md:p-12 gap-8">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-orange-600/70 mb-2 uppercase">
                     Community Food Drive
@@ -55,16 +55,24 @@ export const UpcomingEvents = () => {
                     An initiative dedicated to providing nutritious meals to
                     individuals in need.
                   </p>
-                  <button className="py-1 px-4 bg-yellow-500 hover:bg-yellow-600 text-sm text-white rounded shadow mt-6">
+                  <motion.button
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="py-2 px-4 bg-yellow-500 hover:bg-yellow-600 text-sm text-white rounded shadow mt-6"
+                  >
                     Read More...
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </div>
             <div className="md:col-span-2 flex items-center">
-              <button className="flex items-center py-2 px-4 bg-green-700/90 hover:bg-green-700 text-sm rounded text-white uppercase">
+              <motion.button
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center py-2 px-4 bg-green-700/90 hover:bg-green-700 text-sm rounded text-white uppercase"
+              >
                 View All
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>

@@ -8,11 +8,15 @@ export const navLinks = [
     label: "Who We Are",
   },
   {
+    href: "/support-us",
+    label: "Support Us",
+  },
+  {
     href: "/events",
     label: "Events",
   },
   {
-    href: "/blog",
+    href: "/blogs",
     label: "Blog",
   },
   {

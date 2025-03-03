@@ -82,7 +82,7 @@ export const OurValues = () => {
                   meaningful.
                 </p>
 
-                <button className="mt-10 py-2 px-4 bg-green-600 rounded-md font-semibold uppercase shadow-lg hover:bg-green-500 text-xs whitespace-nowrap">
+                <button className="mt-10 py-2 px-4 bg-green-600 rounded-md font-semibold uppercase shadow-lg hover:bg-green-500 text-sm whitespace-nowrap">
                   Volunteer Today
                 </button>
               </div>

@@ -5,7 +5,7 @@ import { OurValues } from "./_components/our-values";
 import { UpcomingEvents } from "./_components/upcoming-events";
 import { WhoWeAre } from "./_components/who-we-are";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <FixedSocials />

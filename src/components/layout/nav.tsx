@@ -15,7 +15,7 @@ export const Navbar = () => {
 
   return (
     <div className="bg-green-800 text-white shadow-lg z-50 relative">
-      <nav className="h-[70px] flex items-center justify-between pl-6 gap-8">
+      <nav className="h-[70px] flex items-center justify-between pl-6 gap-3">
         <div className="flex gap-6 h-full items-center justify-center">
           <button className="flex md:hidden" onClick={toggle}>
             {toggled ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}

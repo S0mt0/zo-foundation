@@ -42,13 +42,13 @@ export const Hero = () => {
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/60" />
-      <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:pt-20 text-center">
+      <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:py-20 text-center">
         <motion.h1
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-3xl xs:text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+          className="text-3xl xs:text-5xl md:text-7xl ls:text-6xl font-bold text-white mb-8 leading-tight"
         >
           EMPOWERING
           <br />

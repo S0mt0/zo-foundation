@@ -9,7 +9,7 @@ export const jsonLd: WithContext<Organization> = {
   url: BASE_URL,
   logo: `${BASE_URL}/assets/seo/zof-logo.png`,
   description:
-    "The Zita-Onyeka Foundation is dedicated to empowering women and youth, promoting gender equality, and fostering sustainable community development in Nigeria. Join us in creating a brighter future for all.",
+    "The Zita-Onyeka Foundation is a non-profit organization dedicated to empowering women, youth, and communities in Nigeria. Join us in creating sustainable change through education, skill development, and community initiatives.",
   image: `${BASE_URL}/assets/seo/og-image.png`,
   foundingDate: "2020",
   email: "onyekazita@gmail.com",

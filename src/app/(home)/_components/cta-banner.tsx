@@ -1,3 +1,7 @@
+"use client";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
 export const CTABanner = () => {
   return (
     <section className="py-20 px-6 md:px-14">
@@ -17,17 +21,24 @@ export const CTABanner = () => {
             </p>
           </div>
           <div className="flex gap-y-4 gap-x-8 flex-col sm:flex-row mt-10">
-            <button className="font-semibold bg-white text-gray-800 py-2 px-8 rounded-lg hover:bg-white/80 transition-all duration-200">
+            <Link
+              href="/support-us"
+              className="font-semibold bg-white text-gray-800 py-2 px-8 rounded-lg hover:bg-white/80 transition-all duration-200"
+            >
               Become A Volunteer
-            </button>
-            <button
-              className="font-semibold text-white py-2 px-8 bg-center bg-cover"
+            </Link>
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.95 }}
+              className="font-semibold text-white bg-center bg-cover"
               style={{
                 backgroundImage: 'url("/assets/img/button-stroke.svg")',
               }}
             >
-              Donate Now
-            </button>
+              <Link href="/donate" className="py-2 px-8 w-full">
+                Donate Now
+              </Link>
+            </motion.button>
           </div>
         </div>
       </div>
