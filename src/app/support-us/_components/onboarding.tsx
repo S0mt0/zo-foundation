@@ -19,7 +19,7 @@ export const Onboarding = () => {
               Foundation (ZOF).
             </p>
             <p>As a volunteer, you’ll have the opportunity to:</p>
-            <ul className="list-disc leading-loose pl-8">
+            <ul className="list-disc leading-loose pl-4">
               <li>
                 <strong>Empower Youth</strong>: Mentor young people, help them
                 build skills, and guide them toward a brighter future.
@@ -48,7 +48,7 @@ export const Onboarding = () => {
             </h2>
 
             <p>As a volunteer, you’ll have the opportunity to:</p>
-            <ul className="list-disc leading-loose pl-8">
+            <ul className="list-disc leading-loose pl-4">
               <li>
                 <strong>Make a Difference</strong>: Your contribution will
                 directly impact the lives of individuals and communities in

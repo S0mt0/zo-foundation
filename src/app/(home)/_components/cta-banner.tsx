@@ -6,7 +6,7 @@ export const CTABanner = () => {
   return (
     <section className="py-20 px-6 md:px-14">
       <div
-        className="max-w-7xl mx-auto px-10 sm:px-20 text-center sm:text-start p-20 relative bg-center bg-no-repeat"
+        className="max-w-7xl mx-auto px-10 md:px-20 text-center sm:text-start p-20 relative bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/img/together.jpg')" }}
       >
         <div className="absolute inset-0 bg-red-500/65" />
@@ -23,14 +23,14 @@ export const CTABanner = () => {
           <div className="flex gap-y-4 gap-x-8 flex-col sm:flex-row mt-10">
             <Link
               href="/support-us"
-              className="font-semibold bg-white text-gray-800 py-2 px-8 rounded-lg hover:bg-white/80 transition-all duration-200"
+              className="font-semibold bg-white text-gray-800 py-2 px-8 rounded-lg hover:bg-white/80 transition-all duration-200 whitespace-nowrap"
             >
               Become A Volunteer
             </Link>
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="font-semibold text-white bg-center bg-cover"
+              className="font-semibold text-white bg-center bg-cover py-2"
               style={{
                 backgroundImage: 'url("/assets/img/button-stroke.svg")',
               }}

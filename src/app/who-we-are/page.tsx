@@ -1,5 +1,9 @@
 import { Metadata } from "next";
 
+import { Hero } from "@/components/common/hero";
+import { Main } from "./_components/main";
+import { OurTeam } from "./_components/team";
+
 export const metadata: Metadata = {
   title: "Who We Are",
   description:
@@ -7,5 +11,11 @@ export const metadata: Metadata = {
 };
 
 export default function WhoAweArePage() {
-  return <main>whoWeAre</main>;
+  return (
+    <main>
+      <Hero heading="Who We Are" bgImgUrl="/assets/img/team-on-sunset.jpg" />
+      <Main />
+      <OurTeam />
+    </main>
+  );
 }
