@@ -30,7 +30,7 @@ export const CTABanner = () => {
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="font-semibold text-white bg-center bg-cover py-4"
+              className="font-semibold text-white bg-center bg-cover py-3 w-fit"
               style={{
                 backgroundImage: 'url("/assets/img/button-stroke.svg")',
               }}
