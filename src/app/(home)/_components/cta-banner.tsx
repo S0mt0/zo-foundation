@@ -30,12 +30,12 @@ export const CTABanner = () => {
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="font-semibold text-white bg-center bg-cover py-3 w-fit"
+              className="font-semibold text-white bg-center bg-cover py-2 px-6"
               style={{
                 backgroundImage: 'url("/assets/img/button-stroke.svg")',
               }}
             >
-              <Link href="/donate" className="px-8 w-full">
+              <Link href="/donate" className="px-8">
                 Donate Now
               </Link>
             </motion.button>
