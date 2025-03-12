@@ -8,7 +8,7 @@ export const Hero = ({
   bgImgUrl = "/assets/img/together.jpg",
   className,
 }: {
-  heading: string;
+  heading?: string;
   bgImgUrl?: string;
   className?: string;
 }) => {

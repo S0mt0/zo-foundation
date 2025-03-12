@@ -6,8 +6,8 @@ export const TeamMember = ({
   imgUrl = "/assets/img/anonymous-user.webp",
   role = "Member",
 }: {
-  imgUrl?: string;
   name: string;
+  imgUrl?: string;
   role?: string;
   description?: string;
 }) => {
