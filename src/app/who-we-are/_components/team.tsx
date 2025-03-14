@@ -1,7 +1,11 @@
-import { teamsData } from "./team-data";
+import { getTeamMembers } from "@/lib/api";
 import { TeamMember } from "./team-member";
 
-export const OurTeam = () => {
+export const OurTeam = async () => {
+  const teams = await getTeamMembers();
+
+  if (!teams) return null;
+
   return (
     <section className="py-20 px-6 md:px-14 bg-gray-100">
       <div className="max-w-5xl mx-auto">
@@ -9,7 +13,7 @@ export const OurTeam = () => {
           Meet The Team
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {teamsData.map((member, i) => (
+          {teams.map((member, i) => (
             <TeamMember {...member} key={i} />
           ))}
         </div>

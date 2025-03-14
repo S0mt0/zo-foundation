@@ -28,27 +28,27 @@ interface Block {
 interface TBlog {
   blogId: string;
   title: string;
-  banner: string;
+  bannerUrl: string;
   desc: string;
   featured: boolean;
   content: { blocks: Block[]; time: number; version: string };
   createdAt: string;
   updatedAt: string;
-
-  [key: string]: any;
 }
 
-type TBlogSnippet = Omit<TBlog, "content" | "updatedAt">;
+type TBlogSnippet = Omit<TBlog, "content">;
 
 // NGO Events
 interface TEvent {
   eventId: string;
   title: string;
   desc: string;
-  banner: string;
+  bannerUrl: string;
   featured: boolean;
   scheduledFor: string;
-  details: string;
+  more_details: string;
+
+  [key: string]: any;
 }
 
 type TEventSnippet = Omit<TEvent, "details">;
@@ -59,4 +59,13 @@ interface MessagePayload {
   phone: string;
   message: string;
   subject?: string;
+}
+
+interface ITeam {
+  name: string;
+  role: string;
+  avatarUrl: string;
+  bio: string;
+
+  [key: string]: any;
 }

@@ -1,4 +1,5 @@
 import type { Metadata, ResolvingMetadata } from "next";
+import { notFound } from "next/navigation";
 
 import { getBlog } from "@/lib/api";
 import { Blog } from "./_components/main";
@@ -18,6 +19,8 @@ export async function generateMetadata(
   const blogId = (await params).blogId;
   const blog = await getBlog(blogId);
 
+  if (!blog) notFound();
+
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
@@ -29,7 +32,7 @@ export async function generateMetadata(
       images: [
         {
           url:
-            `${blog.banner}?v=${VERSION}` ||
+            `${blog.bannerUrl}?v=${VERSION}` ||
             `${BASE_URL}/assets/img/blank-book.jpg?v=${VERSION}`,
           width: 1200,
           height: 630,
@@ -48,7 +51,7 @@ export async function generateMetadata(
       title: blog.title,
       description: blog.desc,
       images: [
-        `${blog.banner}?v=${VERSION}` ||
+        `${blog.bannerUrl}?v=${VERSION}` ||
           `${BASE_URL}/assets/img/blank-book.jpg?v=${VERSION}`,
       ],
     },
@@ -59,9 +62,14 @@ export default async function BlogPage({ params }: Props) {
   const blogId = (await params).blogId;
   const blog = await getBlog(blogId);
 
+  if (!blog) notFound();
+
   return (
     <div>
-      <Hero heading="Blog" bgImgUrl={blog.banner} />
+      <Hero
+        heading="Blog"
+        bgImgUrl={blog.bannerUrl || "/assets/img/blank-book.jpg"}
+      />
       <Blog {...blog} />
     </div>
   );

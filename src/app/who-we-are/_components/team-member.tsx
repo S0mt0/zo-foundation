@@ -2,19 +2,19 @@ import Image from "next/image";
 
 export const TeamMember = ({
   name,
-  description,
-  imgUrl = "/assets/img/anonymous-user.webp",
+  bio,
+  avatarUrl = "/assets/img/anonymous-user.webp",
   role = "Member",
 }: {
   name: string;
-  imgUrl?: string;
+  avatarUrl?: string;
   role?: string;
-  description?: string;
+  bio?: string;
 }) => {
   return (
     <div className="shadow overflow-hidden hover:shadow-md transition-shadow duration-200 w-full max-w-sm border bg-white text-sm">
       <Image
-        src={imgUrl}
+        src={avatarUrl}
         priority
         width={300}
         height={300}
@@ -24,7 +24,7 @@ export const TeamMember = ({
       <div className="p-4 text-center">
         <strong className="capitalize">{name}</strong>
         <div>{role}</div>
-        <p className="mt-1.5">{description}</p>
+        <p className="mt-1.5">{bio}</p>
       </div>
     </div>
   );
