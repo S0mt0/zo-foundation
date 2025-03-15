@@ -38,6 +38,16 @@ interface TBlog {
 
 type TBlogSnippet = Omit<TBlog, "content">;
 
+interface BlogsData {
+  blogs: TBlogSnippet[];
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}
+
 // NGO Events
 interface TEvent {
   eventId: string;

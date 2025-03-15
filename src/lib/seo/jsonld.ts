@@ -25,6 +25,12 @@ export const jsonLd: WithContext<Organization> = {
   sameAs: [BASE_URL],
   keywords: [
     "Zita Onyeka",
+    "Onyeka",
+    "Zita",
+    "ZoF",
+    "ZOF",
+    "Empowerment",
+    "Youth empowerment",
     "Zita Onyeka Foundation",
     "Zita-Onyeka Foundation",
     "Empower women",

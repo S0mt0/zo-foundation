@@ -16,7 +16,11 @@ export const seoMetadata: Metadata = {
 
   icons: {
     icon: [
-      { url: `${BASE_URL}/assets/seo/favicon.ico` },
+      {
+        url: `${BASE_URL}/assets/seo/favicon.ico`,
+        rel: "icon",
+        type: "image/x-icon",
+      },
       {
         url: `${BASE_URL}/assets/seo/android-chrome-192x192.png`,
         type: "image/png",
@@ -27,14 +31,26 @@ export const seoMetadata: Metadata = {
       },
     ],
     apple: [
-      { url: `${BASE_URL}/assets/seo/apple-touch-icon.png` },
-      { url: `${BASE_URL}/assets/seo/apple-touch-icon.png`, sizes: "180x180" },
+      {
+        url: `${BASE_URL}/assets/seo/apple-touch-icon.png`,
+        rel: "apple-touch-icon",
+      },
+      {
+        url: `${BASE_URL}/assets/seo/apple-touch-icon.png`,
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+      },
     ],
     other: [{ rel: "mask-icon", url: `${BASE_URL}/assets/seo/favicon.svg` }],
   },
 
   keywords: [
-    "Zita Onyeka",
+    "Onyeka",
+    "Zita",
+    "ZoF",
+    "ZOF",
+    "Empowerment",
+    "Youth empowerment",
     "Zita Onyeka Foundation",
     "Zita-Onyeka Foundation",
     "Empower women",

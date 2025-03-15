@@ -12,8 +12,8 @@ export const BlogCard = (blog: TBlog) => {
     content: { blocks },
   } = blog;
 
-  const publishDate = format(new Date(createdAt), "d MMM, yyyy");
-  const updateDate = format(new Date(updatedAt), "d MMM, yyyy");
+  const publishDate = format(new Date(createdAt), "d MMM, yyyy hh:mm aa");
+  const updateDate = format(new Date(updatedAt), "d MMM, yyyy hh:mm aa");
   const hasBeenUpdated = createdAt !== updatedAt;
 
   return (

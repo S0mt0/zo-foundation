@@ -1,16 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API_BASE_URL } from "../constants";
 
-interface BlogsData {
-  blogs: TBlogSnippet[];
-  pagination: {
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
-  };
-}
-
 export async function getAllBlogs(
   query: Record<string, any> = { fields: "-content" }
 ): Promise<BlogsData | undefined> {
