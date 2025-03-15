@@ -5,15 +5,15 @@ import { BlogContent } from "./blog-content";
 
 export const BlogCard = (blog: TBlog) => {
   const {
-    banner,
+    bannerUrl,
     createdAt,
     title,
     updatedAt,
     content: { blocks },
   } = blog;
 
-  const publishDate = format(new Date(createdAt), "d MMM, yyyy");
-  const updateDate = format(new Date(updatedAt), "d MMM, yyyy");
+  const publishDate = format(new Date(createdAt), "d MMM, yyyy hh:mm aa");
+  const updateDate = format(new Date(updatedAt), "d MMM, yyyy hh:mm aa");
   const hasBeenUpdated = createdAt !== updatedAt;
 
   return (
@@ -21,7 +21,7 @@ export const BlogCard = (blog: TBlog) => {
       <Image
         width={500}
         height={400}
-        src={banner}
+        src={bannerUrl}
         alt={title}
         priority
         className="aspect-video w-full"

@@ -1,9 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { API_BASE_URL } from "../constants";
 
-export async function getAllEvents(): Promise<TEventSnippet[]> {
-  const res = await fetch(`${API_BASE_URL}/events`);
+export async function getAllEvents(
+  query: Record<string, any> = { fields: "-more_details" }
+): Promise<TEventSnippet[] | undefined> {
+  const url = new URL(`${API_BASE_URL}/events`);
 
-  if (!res.ok) throw new Error("Failed to fetch events, try again.");
+  Object.keys(query).forEach((key) => {
+    if (query[key] !== undefined && query[key] !== null) {
+      url.searchParams.append(key, query[key]);
+    }
+  });
 
-  return res.json();
+  const res = await fetch(url.toString());
+
+  if (!res.ok) return undefined;
+
+  return res.json().then((data) => data?.data);
 }

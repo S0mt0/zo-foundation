@@ -1,9 +1,9 @@
 import { API_BASE_URL } from "../constants";
 
-export async function getEvent(eventId: string): Promise<TEvent> {
+export async function getEvent(eventId: string): Promise<TEvent | undefined> {
   const res = await fetch(`${API_BASE_URL}/events/${eventId}`);
 
-  if (!res.ok) throw new Error("Failed to fetch event.");
+  if (!res.ok) return undefined;
 
-  return res.json();
+  return res.json().then((data) => data?.data);
 }

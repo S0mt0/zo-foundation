@@ -11,7 +11,7 @@ export const jsonLd: WithContext<Organization> = {
   description:
     "The Zita-Onyeka Foundation is a non-profit organization dedicated to empowering women, youth, and communities in Nigeria. Join us in creating sustainable change through education, skill development, and community initiatives.",
   image: `${BASE_URL}/assets/seo/og-image.png`,
-  foundingDate: "2020",
+  foundingDate: "2012",
   email: "onyekazita@gmail.com",
   telephone: "+234 803 786 4683",
   address: {
@@ -25,6 +25,12 @@ export const jsonLd: WithContext<Organization> = {
   sameAs: [BASE_URL],
   keywords: [
     "Zita Onyeka",
+    "Onyeka",
+    "Zita",
+    "ZoF",
+    "ZOF",
+    "Empowerment",
+    "Youth empowerment",
     "Zita Onyeka Foundation",
     "Zita-Onyeka Foundation",
     "Empower women",
