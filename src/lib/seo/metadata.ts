@@ -20,28 +20,33 @@ export const seoMetadata: Metadata = {
         url: `${BASE_URL}/assets/seo/favicon.ico`,
         rel: "icon",
         type: "image/x-icon",
+        sizes: "48x48",
       },
       {
         url: `${BASE_URL}/assets/seo/android-chrome-192x192.png`,
         type: "image/png",
+        sizes: "192x192",
       },
       {
         url: `${BASE_URL}/assets/seo/android-chrome-512x512.png`,
         type: "image/png",
+        sizes: "512x512",
       },
     ],
     apple: [
       {
         url: `${BASE_URL}/assets/seo/apple-touch-icon.png`,
         rel: "apple-touch-icon",
-      },
-      {
-        url: `${BASE_URL}/assets/seo/apple-touch-icon.png`,
-        rel: "apple-touch-icon",
         sizes: "180x180",
       },
     ],
-    other: [{ rel: "mask-icon", url: `${BASE_URL}/assets/seo/favicon.svg` }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: `${BASE_URL}/assets/seo/favicon.svg`,
+        color: "#000000",
+      },
+    ],
   },
 
   keywords: [
