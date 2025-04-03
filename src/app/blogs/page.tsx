@@ -19,7 +19,7 @@ export default async function BlogsPage() {
 
   if (!blogsData || !blogsData.blogs.length)
     return (
-      <p className="text-xs text-center p-4 py-10">
+      <p className="text-muted-foreground text-sm p-2 rounded-full bg-gray-100 text-center m-4">
         No blog posts available yet.
       </p>
     );

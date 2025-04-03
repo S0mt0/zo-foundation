@@ -23,7 +23,7 @@ export const BlogSnippet = (blog: TBlogSnippet) => {
         <Image
           width={400}
           height={400}
-          src={blog.bannerUrl || "/assets/img/blank-book.jpg"}
+          src={blog.bannerUrl}
           alt={blog.blogId}
           onError={handleImgError}
           className="w-full h-60 object-center object-cover"

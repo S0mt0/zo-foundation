@@ -22,6 +22,14 @@ export const BlogContent = ({ type, data }: Block) => {
           className="text-4xl font-bold"
         />
       );
+
+    if (data.level === 1)
+      return (
+        <h2
+          dangerouslySetInnerHTML={{ __html: data.text || "" }}
+          className="text-5xl font-bold"
+        />
+      );
   }
 
   if (type === "image")
@@ -32,10 +40,10 @@ export const BlogContent = ({ type, data }: Block) => {
           alt="Blog banner image"
           width={500}
           height={400}
-          className="w-full aspect-video"
+          className="w-full aspect-video object-cover object-center"
         />
         {data.caption?.length ? (
-          <p className="w-full my-3 text-center md:mb-12 text-base text-gray-500/75">
+          <p className="w-full my-3 text-center md:mb-12 text-sm text-gray-500/75">
             {data.caption}
           </p>
         ) : (
@@ -46,10 +54,12 @@ export const BlogContent = ({ type, data }: Block) => {
 
   if (type === "quote")
     return (
-      <div className="bg-emerald-400/10 p3 pl-5 border-l-4 border-emerald-600">
+      <div className="bg-emerald-400/10 p3 pl-5 py-2 border-l-4 border-emerald-600">
         <p>{data.text}</p>
         {data.caption?.length ? (
-          <p className="w-full text-base text-emerald-600">{data.caption}</p>
+          <p className="w-full text-base text-emerald-600 mt-8">
+            {data.caption}
+          </p>
         ) : (
           ""
         )}
@@ -67,7 +77,7 @@ export const BlogContent = ({ type, data }: Block) => {
         {data.items?.map((listItem, i) => (
           <li
             key={i}
-            dangerouslySetInnerHTML={{ __html: listItem }}
+            dangerouslySetInnerHTML={{ __html: listItem.content }}
             className="my-4"
           />
         ))}

@@ -12,8 +12,8 @@ export const BlogCard = (blog: TBlog) => {
     content: { blocks },
   } = blog;
 
-  const publishDate = format(new Date(createdAt), "d MMM, yyyy hh:mm aa");
-  const updateDate = format(new Date(updatedAt), "d MMM, yyyy hh:mm aa");
+  const publishDate = format(new Date(createdAt), "d MMM yyyy, hh:mm aa");
+  const updateDate = format(new Date(updatedAt), "d MMM yyyy, hh:mm aa");
   const hasBeenUpdated = createdAt !== updatedAt;
 
   return (
@@ -27,13 +27,15 @@ export const BlogCard = (blog: TBlog) => {
         className="aspect-video w-full"
       />
 
-      <div className="mt-12">
+      <div className="mt-8">
         <h2 className="font-bold text-2xl xs:text-3xl text-gray-800">
           {title}
         </h2>
 
-        <div className="flex items-center gap-3 text-gray-500/75">
-          <p>Published on {publishDate}</p>
+        <div className="flex items-center gap-3 text-gray-500/75 my-3">
+          <p>
+            Published on <span className="underline">{publishDate}</span>
+          </p>
           {hasBeenUpdated ? (
             <p>
               <span className="mr-3">•</span>
@@ -45,7 +47,7 @@ export const BlogCard = (blog: TBlog) => {
         </div>
       </div>
 
-      <div className="my-12">
+      <div className="my-4">
         {blocks.map((block) => (
           <div className="my-4 md:my-8" key={block.id}>
             <BlogContent {...block} />
