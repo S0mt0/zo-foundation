@@ -1,81 +1,92 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type BlockType = "paragraph" | "header" | "list" | "image" | "quote";
-
-interface BlockData {
-  text?: string;
-  level?: number;
-  style?: "unordered" | "ordered";
-  items?: { content: string; [key: string]: any }[];
-  file?: {
-    url: string;
-    size?: number;
-    name?: string;
-    extension?: string;
-  };
-  caption?: string;
-  title?: string;
-
-  [key: string]: any;
-}
-
-interface Block {
-  id: string;
-  type: BlockType;
-  data: BlockData;
-}
-
-// NGO blog
-interface TBlog {
-  blogId: string;
-  title: string;
-  bannerUrl: string;
-  desc: string;
-  featured: boolean;
-  content: { blocks: Block[]; time: number; version: string };
-  createdAt: string;
-  updatedAt: string;
-}
-
-type TBlogSnippet = Omit<TBlog, "content">;
-
-interface BlogsData {
-  blogs: TBlogSnippet[];
-  pagination: {
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
-  };
-}
-
-// NGO Events
-interface TEvent {
-  eventId: string;
-  title: string;
-  desc: string;
-  bannerUrl: string;
-  featured: boolean;
-  scheduledFor: string;
-  more_details: string;
-
-  [key: string]: any;
-}
-
-type TEventSnippet = Omit<TEvent, "details">;
-
-interface MessagePayload {
+interface IUser {
   name: string;
   email: string;
-  phone: string;
-  message: string;
-  subject?: string;
+  image: string;
+  emailVerified?: Date | null;
 }
 
-interface ITeam {
+type BlogStatus = "published" | "draft" | "scheduled";
+
+interface IBlog {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  bannerImage: string;
+  status: BlogStatus;
+  featured: boolean;
+  tags: string[];
+  comments: IComment[];
+  views: number;
+  createdBy: string;
+  authorId?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  author?: IUser | null;
+}
+
+interface IComment {
+  id: string;
+  comment: string;
+  authorName: string;
+  authorEmail: string;
+  blogId: string;
+  blog?: Blog;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+type EventStatus = "upcoming" | "draft" | "completed" | "cancelled";
+
+interface IEvent {
+  id: string;
+  name: string;
+  slug: string;
+  detail?: string | null;
+  excerpt?: string | null;
+  organizer?: string | null;
+  date: Date;
+  startTime: string;
+  endTime: string | null;
+  location: string;
+  maxAttendees: number | null;
+  currentAttendees: number;
+  bannerImage: string;
+  status: EventStatus;
+  featured: boolean;
+  tags: string[];
+  ticketPrice?: string | null;
+  registrationRequired: boolean;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  createdByUser?: IUser | null;
+}
+
+interface IMessage {
+  sender: string;
+  email: string;
+  subject: string;
+  content: string;
+}
+
+interface ITeamMember {
   name: string;
   role: string;
-  avatarUrl: string;
-  bio: string;
+  email: string;
+  bio?: string | null;
+  avatar?: string | null;
+}
 
-  [key: string]: any;
+interface IFoundationInfo {
+  id: string;
+  name: string;
+  email: string;
+  description?: string | null;
+  address?: string | null;
+  phone?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
 }

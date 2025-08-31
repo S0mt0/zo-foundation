@@ -2,7 +2,7 @@ import { QuickCTALinks } from "@/components/common/quick-cta-links";
 import { SocialShareButtons } from "@/components/common/social-share-buttons";
 import { BlogCard } from "./blog-card";
 
-export const Blog = (blog: TBlog) => {
+export const Blog = (blog: IBlog) => {
   return (
     <section className="py-20 px-6 md:px-14">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-10 gap-16">

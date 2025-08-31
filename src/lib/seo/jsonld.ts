@@ -16,7 +16,7 @@ export const jsonLd: WithContext<Organization> = {
   telephone: "+234 803 786 4683",
   address: {
     "@type": "PostalAddress",
-    streetAddress: " 16, Nkwere Street, Garki Area 11 FCT, Abuja Nigeria.",
+    streetAddress: "16, Nkwere Street, Garki Area 11 FCT, Abuja Nigeria.",
     addressLocality: "Abuja",
     addressRegion: "Abuja",
     postalCode: "900247",
@@ -57,6 +57,12 @@ export const jsonLd: WithContext<Organization> = {
     "Social development",
     "Sustainable livelihoods",
     "Women and youth support",
+    "Foundations in Nigeria",
+    "Empowerment in Nigeria",
+    "Nigeria NGOs",
+    "Trending",
+    "Trending NGOs in Nigeria",
+    "Trending Foundations in Nigeria",
   ],
   foundingLocation: {
     "@type": "Place",

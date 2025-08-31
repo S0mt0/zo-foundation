@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 import { BlogContent } from "./blog-content";
 
-export const BlogCard = (blog: TBlog) => {
+export const BlogCard = (blog: IBlog) => {
   const {
     bannerUrl,
     createdAt,
