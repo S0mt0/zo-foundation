@@ -90,3 +90,13 @@ interface IFoundationInfo {
   createdAt: Date;
   updatedAt: Date;
 }
+
+interface IBlogsData {
+  data: IBlog[];
+  pagination: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}

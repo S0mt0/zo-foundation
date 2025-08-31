@@ -1,4 +1,4 @@
-import { Form } from "@/components/common/contact-form";
+import { ContactForm } from "@/components/common/contact-form";
 import { QuickCTALinks } from "@/components/common/quick-cta-links";
 import { SocialShareButtons } from "@/components/common/social-share-buttons";
 
@@ -29,7 +29,7 @@ export const ContactUs = () => {
               Have a specific inquiry or want to collaborate? Fill out the form
               below, and we’ll get back to you as soon as possible.
             </p>
-            <Form />
+            <ContactForm />
           </div>
         </div>
 

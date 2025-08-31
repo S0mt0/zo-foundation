@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../constants";
 
 export async function getAllEvents(
   query: Record<string, any> = { fields: "-more_details" }
-): Promise<TEventSnippet[] | undefined> {
+): Promise<any | undefined> {
   const url = new URL(`${API_BASE_URL}/events`);
 
   Object.keys(query).forEach((key) => {

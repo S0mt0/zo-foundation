@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../constants";
 
 export async function getAllBlogs(
   query?: Record<string, any>
-): Promise<BlogsData | undefined> {
+): Promise<IBlogsData | undefined> {
   const url = new URL(`${API_BASE_URL}/blogs`);
 
   query = { ...query, fields: "-content" };
