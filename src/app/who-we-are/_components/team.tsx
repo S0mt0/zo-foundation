@@ -1,10 +1,8 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
-import { getTeamMembers } from "@/lib/api";
-
-export const OurTeam = async () => {
-  const teams = await getTeamMembers();
-
+export const OurTeam = ({ teams }: { teams?: ITeamMember[] }) => {
   if (!teams) return null;
 
   return (
@@ -14,26 +12,33 @@ export const OurTeam = async () => {
           Meet The Team
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {teams.map(({ name, role, avatar, bio }, i) => (
-            <div
-              key={i}
-              className="overflow-hidden hover:shadow-md transition-shadow duration-200 w-full max-w-sm border bg-white text-sm"
-            >
-              <Image
-                src={avatar!}
-                priority
-                width={300}
-                height={300}
-                alt={`Team member: ${name}`}
-                className="w-full h-72 object-center object-cover"
-              />
-              <div className="p-4 text-center flex flex-col">
-                <strong className="capitalize text-lg">{name}</strong>
-                <span className="text-red-700">({role})</span>
-                <p className="mt-1.5">{bio}</p>
+          {teams.map(({ name, role, avatar, bio }, i) => {
+            const [imgSrc, setImgSrc] = useState(
+              avatar?.trim().length ? avatar : "/assets/img/anonymous-user.webp"
+            );
+
+            return (
+              <div
+                key={i}
+                className="overflow-hidden hover:shadow-md transition-shadow duration-200 w-full max-w-sm border bg-white text-sm"
+              >
+                <Image
+                  src={imgSrc}
+                  priority
+                  width={300}
+                  height={300}
+                  alt={`Team member: ${name}`}
+                  className="w-full h-72 object-center object-cover"
+                  onError={() => setImgSrc("/assets/img/anonymous-user.webp")}
+                />
+                <div className="p-4 text-center flex flex-col">
+                  <strong className="capitalize text-lg">{name}</strong>
+                  <span className="text-red-700">({role})</span>
+                  <p className="mt-1.5">{bio}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
