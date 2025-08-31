@@ -1,7 +1,10 @@
 import { API_BASE_URL } from "../constants";
 
-export async function getTeamMembers(): Promise<ITeam[] | undefined> {
-  const res = await fetch(`${API_BASE_URL}/team`);
+export async function getTeamMembers(): Promise<ITeamMember[] | undefined> {
+  const res = await fetch(`${API_BASE_URL}/teams`, {
+    cache: "force-cache",
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) return undefined;
 

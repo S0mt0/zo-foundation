@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "react-hot-toast";
 
 import "./globals.css";
 import { jsonLd, seoMetadata } from "@/lib/seo";
@@ -38,6 +39,7 @@ export default function RootLayout({
       </head>
       <body className={cn("antialiased", montserrat.className)}>
         <Analytics />
+        <Toaster position="top-right" reverseOrder />
         <Navbar />
         {children}
         <Footer />

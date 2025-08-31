@@ -1,81 +1,102 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type BlockType = "paragraph" | "header" | "list" | "image" | "quote";
-
-interface BlockData {
-  text?: string;
-  level?: number;
-  style?: "unordered" | "ordered";
-  items?: { content: string; [key: string]: any }[];
-  file?: {
-    url: string;
-    size?: number;
-    name?: string;
-    extension?: string;
-  };
-  caption?: string;
-  title?: string;
-
-  [key: string]: any;
+interface IUser {
+  name: string;
+  email: string;
+  image: string;
+  emailVerified?: Date | null;
 }
 
-interface Block {
+type BlogStatus = "published" | "draft" | "scheduled";
+
+interface IBlog {
   id: string;
-  type: BlockType;
-  data: BlockData;
-}
-
-// NGO blog
-interface TBlog {
-  blogId: string;
   title: string;
-  bannerUrl: string;
-  desc: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  bannerImage: string;
+  status: BlogStatus;
   featured: boolean;
-  content: { blocks: Block[]; time: number; version: string };
-  createdAt: string;
-  updatedAt: string;
+  tags: string[];
+  comments: IComment[];
+  views: number;
+  createdBy: string;
+  authorId?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  author?: IUser | null;
 }
 
-type TBlogSnippet = Omit<TBlog, "content">;
+interface IComment {
+  id: string;
+  comment: string;
+  authorName: string;
+  authorEmail: string;
+  blogId: string;
+  blog?: Blog;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-interface BlogsData {
-  blogs: TBlogSnippet[];
+type EventStatus = "upcoming" | "draft" | "completed" | "cancelled";
+
+interface IEvent {
+  id: string;
+  name: string;
+  slug: string;
+  detail?: string | null;
+  excerpt?: string | null;
+  organizer?: string | null;
+  date: Date;
+  startTime: string;
+  endTime: string | null;
+  location: string;
+  maxAttendees: number | null;
+  currentAttendees: number;
+  bannerImage: string;
+  status: EventStatus;
+  featured: boolean;
+  tags: string[];
+  ticketPrice?: string | null;
+  registrationRequired: boolean;
+  createdBy: string;
+  createdAt: Date;
+  updatedAt: Date;
+  createdByUser?: IUser | null;
+}
+
+interface IMessage {
+  sender: string;
+  email: string;
+  subject: string;
+  content: string;
+}
+
+interface ITeamMember {
+  name: string;
+  role: string;
+  email: string;
+  bio?: string | null;
+  avatar?: string | null;
+}
+
+interface IFoundationInfo {
+  id: string;
+  name: string;
+  email: string;
+  description?: string | null;
+  address?: string | null;
+  phone?: string | null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface IBlogsData {
+  data: IBlog[];
   pagination: {
     total: number;
     page: number;
     limit: number;
     totalPages: number;
   };
-}
-
-// NGO Events
-interface TEvent {
-  eventId: string;
-  title: string;
-  desc: string;
-  bannerUrl: string;
-  featured: boolean;
-  scheduledFor: string;
-  more_details: string;
-
-  [key: string]: any;
-}
-
-type TEventSnippet = Omit<TEvent, "details">;
-
-interface MessagePayload {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  subject?: string;
-}
-
-interface ITeam {
-  name: string;
-  role: string;
-  avatarUrl: string;
-  bio: string;
-
-  [key: string]: any;
 }

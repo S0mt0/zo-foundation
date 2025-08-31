@@ -15,24 +15,20 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogsPage() {
-  const blogsData = await getAllBlogs();
+  // const blogsData = await getAllBlogs();
 
-  if (!blogsData || !blogsData.blogs.length)
-    return (
-      <p className="text-muted-foreground text-sm p-2 rounded-full bg-gray-100 text-center m-4">
-        No blog posts available yet.
-      </p>
-    );
+  // if (!blogsData || !blogsData.data.length)
+  //   return (
+  //     <p className="text-muted-foreground text-sm p-2 rounded-full bg-gray-100 text-center m-4">
+  //       No blog posts available yet.
+  //     </p>
+  //   );
 
   return (
     <main className="py-20 px-6 md:px-14">
       <div className="grid grid-cols-1 md:grid-cols-10 gap-16">
         <div className="md:col-span-7 @container">
-          <div className="grid @lg:grid-cols-2 gap-12">
-            {blogsData.blogs.map((blog) => (
-              <BlogSnippet {...blog} key={blog.blogId} />
-            ))}
-          </div>
+          <div className="grid @lg:grid-cols-2 gap-12"></div>
         </div>
 
         <div className="md:col-span-3 relative">

@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { Clock } from "lucide-react";
 
-export const BlogSnippet = (blog: TBlogSnippet) => {
+export const BlogSnippet = (blog: any) => {
   const publishDate = format(new Date(blog.createdAt), "d MMM, yyyy hh:mm aa");
   const updateDate = format(new Date(blog.updatedAt), "d MMM, yyyy hh:mm aa");
   const hasBeenUpdated = blog.createdAt !== blog.updatedAt;

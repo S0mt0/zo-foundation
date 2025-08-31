@@ -82,6 +82,12 @@ export const seoMetadata: Metadata = {
     "Social development",
     "Sustainable livelihoods",
     "Women and youth support",
+    "Foundations in Nigeria",
+    "Empowerment in Nigeria",
+    "Nigeria NGOs",
+    "Trending",
+    "Trending NGOs in Nigeria",
+    "Trending Foundations in Nigeria",
   ],
 
   authors: [{ name: "Zita Onyeka", url: BASE_URL }],
@@ -131,11 +137,11 @@ export const seoMetadata: Metadata = {
     images: [`${BASE_URL}/assets/seo/og-image.png?v=${VERSION}`],
   },
 
-  // other: {
-  //   "og:image:width": "1200",
-  //   "og:image:height": "630",
-  //   "cache-control": "no-cache, no-store, must-revalidate",
-  //   pragma: "no-cache",
-  //   expires: "0",
-  // },
+  other: {
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "cache-control": "no-cache, no-store, must-revalidate",
+    pragma: "no-cache",
+    expires: "0",
+  },
 };
