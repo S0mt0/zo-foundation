@@ -14,7 +14,7 @@ export const OurTeam = ({ teams }: { teams?: ITeamMember[] }) => {
         <div className="flex flex-col xs:flex-row flex-wrap gap-8 justify-center">
           {teams.map(({ name, role, avatar, bio }, i) => {
             const [imgSrc, setImgSrc] = useState(
-              avatar?.trim().length ? avatar : "/assets/img/anonymous-user.webp"
+              avatar?.trim().length ? avatar : "/assets/img/unknown-user.png"
             );
 
             return (
@@ -29,7 +29,7 @@ export const OurTeam = ({ teams }: { teams?: ITeamMember[] }) => {
                   height={300}
                   alt={`Team member: ${name}`}
                   className="w-full aspect-square object-center object-cover"
-                  onError={() => setImgSrc("/assets/img/anonymous-user.webp")}
+                  onError={() => setImgSrc("/assets/img/unknown-user.png")}
                 />
                 <div className="p-6 text-center flex flex-col">
                   <strong className="capitalize text-lg">{name}</strong>
