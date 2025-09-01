@@ -5,6 +5,8 @@ import { Main } from "./_components/main";
 import { OurTeam } from "./_components/team";
 import { getTeamMembers } from "@/lib/api";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Who We Are",
   description:
