@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 
 import { getAllBlogs } from "@/lib/api";
-import { BlogSnippet } from "./_components/blog-snippet";
 import { QuickCTALinks } from "@/components/common/quick-cta-links";
 import { SocialShareButtons } from "@/components/common/social-share-buttons";
 
@@ -14,15 +13,20 @@ export const metadata: Metadata = {
     "Stay informed with the latest news, success stories, and updates from the Zita-Onyeka Foundation. Learn how we’re making a difference in the lives of women, youth, and communities.",
 };
 
-export default async function BlogsPage() {
-  // const blogsData = await getAllBlogs();
+export const dynamic = "force-dynamic";
 
-  // if (!blogsData || !blogsData.data.length)
-  //   return (
-  //     <p className="text-muted-foreground text-sm p-2 rounded-full bg-gray-100 text-center m-4">
-  //       No blog posts available yet.
-  //     </p>
-  //   );
+export default async function BlogsPage() {
+  const response = await getAllBlogs({
+    fields: ["bannerImage", "title", "slug", "excerpt"],
+    featured: "all",
+  });
+
+  if (!response?.data || !response.data.length)
+    return (
+      <p className="text-muted-foreground text-sm p-2 rounded-full bg-gray-100 text-center m-4">
+        No blog posts available yet.
+      </p>
+    );
 
   return (
     <main className="py-20 px-6 md:px-14">
