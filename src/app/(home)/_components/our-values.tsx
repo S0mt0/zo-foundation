@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Sprout } from "lucide-react";
+import Link from "next/link";
 
 export const OurValues = () => {
   const our_values = [
@@ -66,7 +67,7 @@ export const OurValues = () => {
             className="md:col-span-2 mt-20 md:mt-0 md:border-l md:pl-6 lg:pl-10 @container"
           >
             <div
-              className="md:col-span-2 bg-no-repeat bg-cover bg-center relative p-8 px-5 text-center text-white rounded-md overflow-hidden text-sm h-full place-items-center"
+              className="md:col-span-2 bg-no-repeat bg-cover bg-center relative p-8 px-5 text-center text-white overflow-hidden text-sm h-full place-items-center"
               style={{
                 backgroundImage: 'url("/assets/img/value-and-strength.jpg")',
               }}
@@ -82,9 +83,12 @@ export const OurValues = () => {
                   meaningful.
                 </p>
 
-                <button className="mt-10 py-2 px-4 bg-green-600 rounded-md font-semibold uppercase shadow-lg hover:bg-green-500 text-sm whitespace-nowrap">
+                <Link
+                  href="/contact"
+                  className="mt-10 py-2 px-4 bg-primary font-semibold uppercase shadow-lg hover:bg-primary/90 text-sm whitespace-nowrap"
+                >
                   Volunteer Today
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

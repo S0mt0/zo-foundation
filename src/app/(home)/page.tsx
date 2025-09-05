@@ -14,6 +14,7 @@ export default async function HomePage() {
     await getAllBlogs({
       fields: ["bannerImage", "title", "slug", "excerpt"],
       featured: "featured",
+      limit: 2,
     })
   )?.data;
 
@@ -24,8 +25,8 @@ export default async function HomePage() {
       <WhoWeAre />
       <OurValues />
       <UpcomingEvents />
-      <CTABanner />
       <FeaturedBlogs blogs={featuredBlogs} />
+      <CTABanner />
     </main>
   );
 }

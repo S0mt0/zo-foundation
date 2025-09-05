@@ -1,37 +1,4 @@
-// import Image from "next/image";
-// import Link from "next/link";
-// import { ArrowRight } from "lucide-react";
-
-// type Props = {};
-// export const BlogCard = ({ bannerImage, title }: IBlog) => {
-//   return (
-//     <Link
-//       href={`/blogs/${title}`}
-//       className="shadow-none rounded-none overflow-hidden max-w-7xl group"
-//     >
-//       <div className="relative">
-//         <Image
-//           src={bannerImage}
-//           height={300}
-//           width={400}
-//           priority
-//           alt={title}
-//           className="w-full aspect-video object-cover object-center"
-//         />
-//         <div className="absolute inset-0 bg-white flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-all duration-100">
-//           <Link
-//             href={`/blogs/${title}`}
-//             className="flex items-center gap-2 uppercase text-sm text"
-//           >
-//             Read more <ArrowRight />
-//           </Link>
-//         </div>
-//       </div>
-//       <div className="p-8">{title}</div>
-//     </Link>
-//   );
-// };
-
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -40,21 +7,26 @@ export const BlogCard = ({ slug, bannerImage, title, excerpt }: IBlog) => {
     <Link
       href={`/blogs/${slug}`}
       aria-label={`Read blog: ${title}`}
-      className="group block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+      className="group block overflow-hidden hover:bg-white transition-all  hover:-translate-y-0.5 w-full max-w-3xl"
     >
       <div className="relative">
         <Image
-          src={bannerImage ?? "/placeholder.jpg"}
+          src={bannerImage}
           alt={title}
           width={800}
           height={450}
           sizes="(max-width: 768px) 100vw, 800px"
-          className="w-full aspect-video object-cover object-center transition-transform duration-300 group-hover:scale-105"
+          className="w-full aspect-video object-cover object-center"
         />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-all duration-200 uppercase">
+          <div className="flex items-center text-xl gap-3 text-white font-extrabold">
+            Read more <ArrowRight />
+          </div>
+        </div>
       </div>
 
       <div className="p-5">
-        <h3 className="text-xl font-semibold leading-snug line-clamp-2 text-gray-900 group-hover:text-gray-700 transition-colors">
+        <h3 className="text-3xl capitalize font-semibold leading-snug line-clamp-2 text-gray-950 transition-colors">
           {title}
         </h3>
 
