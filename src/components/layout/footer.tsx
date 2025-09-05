@@ -4,7 +4,7 @@ import { ImPhoneHangUp } from "react-icons/im";
 
 export const Footer = () => {
   return (
-    <footer className="mt-14 bg-slate-800 text-stone-400 text-xs">
+    <footer className="bg-slate-800 text-stone-400 text-xs">
       <div className="flex flex-wrap justify-center items-center text-center gap-y-3 gap-x-12 p-6">
         <address className="shrink-0 whitespace-nowrap flex items-center gap-3">
           <MapPin className="h-4 w-4 text-stone-200" />

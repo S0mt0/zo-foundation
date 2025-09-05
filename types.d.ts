@@ -91,8 +91,12 @@ interface IFoundationInfo {
   updatedAt: Date;
 }
 
-interface IBlogsData {
-  data: IBlog[];
+interface ApiResponse<T> {
+  message: string;
+  data?: T;
+}
+interface ApiPaginatedResponse<T> extends ApiResponse {
+  data: T[];
   pagination: {
     total: number;
     page: number;

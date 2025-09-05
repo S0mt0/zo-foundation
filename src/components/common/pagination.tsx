@@ -1,17 +1,17 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface PaginationProps {
+  pathname: string;
+  searchParams?: Record<string, string>;
   currentPage: number;
   totalPages: number;
   showingStart: number;
   showingEnd: number;
   totalItems: number;
   itemName?: string;
+  limit?: number;
 }
 
 export function Pagination({
@@ -21,15 +21,15 @@ export function Pagination({
   showingEnd,
   totalItems,
   itemName = "items",
+  limit = 5,
+  pathname,
+  searchParams,
 }: PaginationProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   // hide everything if no items
-  if (!totalItems || totalPages <= 0) return null;
+  if (!totalItems || totalPages <= 0 || totalItems <= limit) return null;
 
   const setPageHref = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams);
     // keep other query params intact
     if (page <= 1) {
       params.delete("page");
@@ -71,12 +71,12 @@ export function Pagination({
   const hasNext = currentPage < totalPages;
 
   return (
-    <div className="flex items-center justify-between mt-6 pt-4 border-t flex-wrap gap-4">
+    <div className="flex items-center justify-between mt-6 pt-4 border-t gap-4">
       <div className="hidden sm:block text-sm text-muted-foreground">
         Showing {showingStart} to {showingEnd} of {totalItems} {itemName}
       </div>
 
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center gap-2 flex-wrap">
         {/* Previous */}
         <Button
           variant="outline"
