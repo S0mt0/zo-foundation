@@ -17,7 +17,6 @@ export const dynamic = "force-dynamic";
 
 export default async function BlogsPage() {
   const response = await getAllBlogs({
-    fields: ["bannerImage", "title", "slug", "excerpt"],
     featured: "all",
   });
 

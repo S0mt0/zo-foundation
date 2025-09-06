@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export const OurTeam = ({ teams }: { teams?: ITeamMember[] }) => {
+export const OurTeam = async ({
+  teamsPromise,
+}: {
+  teamsPromise?: Promise<ITeamMember[] | undefined>;
+}) => {
+  const teams = await teamsPromise;
+
   if (!teams || !teams.length) return null;
 
   return (

@@ -17,7 +17,7 @@ export async function apiFetch<T>(
       }
     });
 
-    const res = await fetch(url.toString(), { cache: "no-store" });
+    const res = await fetch(url.toString());
     if (!res.ok) return undefined;
 
     return (await res.json()) as T;
