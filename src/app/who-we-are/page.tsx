@@ -5,12 +5,12 @@ import { Main } from "./_components/main";
 import { OurTeam } from "./_components/team";
 import { getTeamMembers } from "@/lib/api";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Who We Are",
   description:
-    "Learn about the Zita-Onyeka Foundation’s mission, vision, and values. Discover how we empower women, youth, and communities through education, skill development, and sustainable initiatives.",
+    "Learn about the Zita-Onyeka Foundation's mission, vision, and values. Discover how we empower women, youth, and communities through education, skill development, and sustainable initiatives.",
 };
 
 export default async function WhoAweArePage() {
