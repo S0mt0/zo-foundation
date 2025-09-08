@@ -26,7 +26,7 @@ export const BlogCard = ({
           unoptimized
           priority
         />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-all duration-200 uppercase">
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-transform duration-200 uppercase">
           <div className="flex items-center text-lg gap-3 text-white font-bold">
             Read more <ArrowRight />
           </div>
@@ -42,7 +42,7 @@ export const BlogCard = ({
           <p className="mt-2 text-sm text-gray-600 line-clamp-2">{excerpt}</p>
         )}
 
-        <p className="text-sm mt-2 font-normal xs:font-semibold">
+        <p className="text-xs mt-2 font-normal xs:font-semibold">
           {format(publishedAt || new Date(), "MMMM d, yyyy")}
         </p>
       </div>

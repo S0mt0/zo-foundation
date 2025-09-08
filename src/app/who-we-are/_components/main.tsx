@@ -4,7 +4,7 @@ import { SocialShareButtons } from "@/components/common/social-share-buttons";
 export const Main = () => {
   return (
     <section className="py-20 px-6 md:px-14">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-10 gap-16">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-10 gap-16">
         <div className="md:col-span-6 text-sm space-y-8">
           <div className="space-y-6">
             <h2 className="font-bold text-red-700 uppercase">Who We Are</h2>

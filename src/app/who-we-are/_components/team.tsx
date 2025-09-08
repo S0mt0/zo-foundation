@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 export const OurTeam = async ({
@@ -8,6 +9,11 @@ export const OurTeam = async ({
   const teams = await teamsPromise;
 
   if (!teams || !teams.length) return null;
+
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = "/assets/img/unknown-user.png";
+  };
 
   return (
     <section className="py-20 px-6 md:px-14 bg-gray-100">
@@ -28,6 +34,7 @@ export const OurTeam = async ({
                 height={300}
                 alt={`Team member: ${name}`}
                 className="w-full aspect-square object-center object-cover"
+                onError={handleImgError}
               />
               <div className="p-6 text-center flex flex-col">
                 <strong className="capitalize text-lg">{name}</strong>

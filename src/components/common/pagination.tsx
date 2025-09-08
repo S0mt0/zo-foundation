@@ -71,27 +71,28 @@ export function Pagination({
   const hasNext = currentPage < totalPages;
 
   return (
-    <div className="flex items-center justify-between mt-6 pt-4 border-t gap-4">
-      <div className="hidden sm:block text-sm text-muted-foreground">
+    <div className="flex items-center justify-center mt-6 pt-4 border-t gap-4">
+      {/* <div className="hidden sm:block text-sm text-muted-foreground">
         Showing {showingStart} to {showingEnd} of {totalItems} {itemName}
-      </div>
+      </div> */}
 
       <div className="flex items-center gap-2 flex-wrap">
         {/* Previous */}
-        <Button
-          variant="outline"
-          size="sm"
-          asChild
-          className={!hasPrev ? "pointer-events-none opacity-50" : ""}
-        >
-          <Link
-            href={hasPrev ? setPageHref(currentPage - 1) : "#"}
-            aria-disabled={!hasPrev}
+        {hasPrev && (
+          <Button
+            variant="outline"
+            asChild
+            className={!hasPrev ? "pointer-events-none opacity-50" : ""}
           >
-            <ChevronLeft className="h-4 w-4" />
-            Previous
-          </Link>
-        </Button>
+            <Link
+              href={hasPrev ? setPageHref(currentPage - 1) : "#"}
+              aria-disabled={!hasPrev}
+            >
+              <ChevronLeft className="h-4 w-4" />
+              {/* Previous */}
+            </Link>
+          </Button>
+        )}
 
         {/* Page numbers */}
         <div className="flex items-center space-x-1">
@@ -113,9 +114,7 @@ export function Pagination({
               <Button
                 key={page}
                 variant={isActive ? "default" : "outline"}
-                size="sm"
                 asChild
-                className="w-8 h-8 p-0"
               >
                 <Link
                   href={setPageHref(page as number)}
@@ -129,20 +128,21 @@ export function Pagination({
         </div>
 
         {/* Next */}
-        <Button
-          variant="outline"
-          size="sm"
-          asChild
-          className={!hasNext ? "pointer-events-none opacity-50" : ""}
-        >
-          <Link
-            href={hasNext ? setPageHref(currentPage + 1) : "#"}
-            aria-disabled={!hasNext}
+        {hasNext && (
+          <Button
+            variant="outline"
+            asChild
+            className={!hasNext ? "pointer-events-none opacity-50" : ""}
           >
-            Next
-            <ChevronRight className="h-4 w-4" />
-          </Link>
-        </Button>
+            <Link
+              href={hasNext ? setPageHref(currentPage + 1) : "#"}
+              aria-disabled={!hasNext}
+            >
+              {/* Next */}
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        )}
       </div>
     </div>
   );

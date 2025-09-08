@@ -27,7 +27,7 @@ export const OurValues = () => {
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="font-bold text-gray-700 text-xl uppercase mb-2 flex items-center gap-2"
+          className="font-bold text-xl uppercase mb-2 flex items-center gap-2"
         >
           <div>
             <span className="text-green-400">Our</span> Values

@@ -1,64 +1,101 @@
-// "use client";
-// import Image from "next/image";
-// import { format } from "date-fns";
-// import Link from "next/link";
-// import { Clock } from "lucide-react";
+"use client";
+import Image from "next/image";
+import type React from "react";
 
-// export const BlogSnippet = (blog: any) => {
-//   const publishDate = format(new Date(blog.createdAt), "d MMM, yyyy hh:mm aa");
-//   const updateDate = format(new Date(blog.updatedAt), "d MMM, yyyy hh:mm aa");
-//   const hasBeenUpdated = blog.createdAt !== blog.updatedAt;
+import { format } from "date-fns";
+import Link from "next/link";
 
-//   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-//     const target = e.target as HTMLImageElement;
-//     target.src = "/assets/img/blank-book.jpg";
-//   };
+interface BlogSnippetProps {
+  bannerImage: string;
+  excerpt: string;
+  slug: string;
+  title: string;
+  tags: string[];
+  comments?: Record<string, any>[];
+  publishedAt: Date;
+}
 
-//   return (
-//     <Link
-//       href={`/blogs/${blog.blogId}`}
-//       className="bg-neutral-50 hover:bg-white shadow-md rounded-md hover:shadow-2xl transition-all duration-200 overflow-hidden group max-w-xl w-full"
-//     >
-//       <div className="relative">
-//         <Image
-//           width={400}
-//           height={400}
-//           src={blog.bannerUrl}
-//           alt={blog.blogId}
-//           onError={handleImgError}
-//           className="w-full h-60 object-center object-cover"
-//         />
+export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = "/assets/img/blank-book.jpg";
+  };
 
-//         <div className="flex flex-col px-6 py-8 ls:py-8 xs:p-8 gap-2 mb-3">
-//           <div className="text-gray-500/65 text-xs space-y-2 mb-3 border-b pb-3">
-//             <p className="flex items-center gap-1.5">
-//               <Clock className="h-4 w-4 text-green-500/50" />
-//               Published on{" "}
-//               <span className="text-muted-foreground whitespace-nowrap">
-//                 {publishDate}
-//               </span>
-//             </p>
-//             {hasBeenUpdated ? (
-//               <p className="flex items-center gap-1.5">
-//                 <Clock className="h-4 w-4 text-green-500/50" />
-//                 Last updated on{" "}
-//                 <span className="text-muted-foreground whitespace-nowrap">
-//                   {updateDate}
-//                 </span>
-//               </p>
-//             ) : (
-//               ""
-//             )}
-//           </div>
-//           <h3 className="font-bold text-orange-600/70 mb-2 capitalize text-lg">
-//             {blog.title}
-//           </h3>
-//           <p className="text-sm line-clamp-4">{blog.desc}</p>
-//           <button className="py-2 px-4 bg-yellow-500 hover:bg-yellow-600 text-sm text-white rounded shadow mt-6">
-//             Read More
-//           </button>
-//         </div>
-//       </div>
-//     </Link>
-//   );
-// };
+  const publishedDate =
+    data.publishedAt instanceof Date && !isNaN(data.publishedAt.getTime())
+      ? data.publishedAt
+      : new Date();
+
+  const dayNumber = format(publishedDate, "dd");
+  const monthName = format(publishedDate, "MMM").toUpperCase();
+  const commentCount = data.comments?.length || 0;
+
+  return (
+    <Link
+      href={`/blogs/${data.slug}`}
+      className="bg-white shadow-sm border border-gray-100 overflow-hidden"
+    >
+      <div className="relative">
+        <Image
+          width={800}
+          height={400}
+          src={data.bannerImage}
+          alt={data.title}
+          className="w-full h-auto object-center object-cover"
+          priority
+          onError={handleImgError}
+        />
+      </div>
+
+      <div className="flex">
+        {/* Date Sidebar */}
+        <div className="flex-shrink-0 bg-gray-50 px-4 py-6 text-center border-r border-gray-100">
+          <div className="text-4xl font-bold text-orange-500 leading-none">
+            {dayNumber}
+          </div>
+          <div className="text-sm font-medium text-gray-600 mt-1">
+            {monthName}
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 p-6">
+          {/* Title */}
+          <h2 className="text-xl font-bold text-gray-900 mb-4 leading-tight capitalize">
+            {data.title}
+          </h2>
+
+          {/* Metadata */}
+          <div className="flex flex-wrap gap-8 text-sm text-gray-500 mb-4">
+            <div>
+              <span className="font-medium">Posted by</span>
+            </div>
+            <div>
+              <span className="font-medium">Categories</span>
+              <div className="font-normal">{data?.tags?.join(", ")}</div>
+            </div>
+            <div>
+              <span className="font-medium">Comments</span>
+              <div className="font-normal">
+                {commentCount} Comment{commentCount !== 1 ? "s" : ""}
+              </div>
+            </div>
+          </div>
+
+          {/* Excerpt */}
+          <p className="text-gray-700 leading-relaxed mb-6 line-clamp-2">
+            {data.excerpt}
+          </p>
+
+          {/* Read More Button */}
+          <Link
+            href={`/blogs/${data.slug}`}
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded transition-colors duration-200"
+          >
+            READ MORE
+          </Link>
+        </div>
+      </div>
+    </Link>
+  );
+};

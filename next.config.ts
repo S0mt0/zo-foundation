@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
         pathname: "/dc8r0pdlw/**",
       },
     ],
+    unoptimized: true,
   },
 };
 
