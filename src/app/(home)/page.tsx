@@ -14,9 +14,8 @@ export const revalidate = 0;
 
 export default async function HomePage() {
   const blogsDataPromise = getAllBlogs({
-    fields: ["bannerImage", "title", "slug", "excerpt"],
+    fields: ["bannerImage", "title", "slug", "excerpt", "publishedAt"],
     featured: "featured",
-    limit: 2,
   });
 
   return (
@@ -25,10 +24,10 @@ export default async function HomePage() {
       <Hero />
       <WhoWeAre />
       <OurValues />
-      <UpcomingEvents />
       <Suspense fallback={<SkeletonItems />}>
         <FeaturedBlogs blogsDataPromise={blogsDataPromise} />
       </Suspense>
+      <UpcomingEvents />
       <CTABanner />
     </main>
   );

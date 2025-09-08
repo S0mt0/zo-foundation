@@ -6,7 +6,7 @@ import Link from "next/link";
 export const WhoWeAre = () => {
   return (
     <section className="py-20 px-6 md:px-14 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}

@@ -30,14 +30,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-green-800">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={cn("antialiased", montserrat.className)}>
+      <body
+        className={cn(
+          "antialiased w-full overflow-x-hidden",
+          montserrat.className
+        )}
+      >
         <Analytics />
         <Toaster position="top-right" reverseOrder />
         <Navbar />

@@ -8,37 +8,35 @@ import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { AutoLinkNode, LinkNode } from "@lexical/link";
-// Import your custom nodes
+
 import { HorizontalRuleNode } from "./HorizontalRuleNode";
 import { ImageNode } from "./ImageNode";
 import { YouTubeNode } from "./YouTubeNode";
+import { cn } from "@/lib/utils";
 
-interface LexicalContentRendererProps {
+interface LexicalContentDisplayProps {
   content: string;
   className?: string;
 }
 
-export function LexicalContentRenderer({
+export function LexicalContentDisplay({
   content,
-  className = "prose prose-lg dark:prose-invert max-w-none",
-}: LexicalContentRendererProps) {
+  className = "prose prose-lg dark:prose-invert",
+}: LexicalContentDisplayProps) {
   const [htmlContent, setHtmlContent] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const convertToHtml = async () => {
       try {
-        // Check if content is already HTML (legacy content)
         if (content.startsWith("<") || !content.startsWith("{")) {
           setHtmlContent(content);
           setIsLoading(false);
           return;
         }
 
-        // Parse Lexical state
         const editorState = JSON.parse(content);
 
-        // Create a temporary editor instance
         const editor = createEditor({
           nodes: [
             HeadingNode,
@@ -59,7 +57,6 @@ export function LexicalContentRenderer({
           onError: (error) => console.error("Lexical error:", error),
         });
 
-        // Convert state to HTML
         editor.setEditorState(editor.parseEditorState(editorState));
 
         const html = await new Promise<string>((resolve) => {
@@ -72,7 +69,6 @@ export function LexicalContentRenderer({
         setHtmlContent(html);
       } catch (error) {
         console.error("Failed to parse content:", error);
-        // Fallback to raw content
         setHtmlContent(content);
       } finally {
         setIsLoading(false);
@@ -96,7 +92,7 @@ export function LexicalContentRenderer({
 
   return (
     <div
-      className={className}
+      className={cn("min-w-full w-full max-w-full", className)}
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );

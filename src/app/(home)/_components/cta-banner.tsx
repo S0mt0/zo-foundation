@@ -6,7 +6,7 @@ export const CTABanner = () => {
   return (
     <section className="py-20 px-6 md:px-14 mb-10">
       <div
-        className="max-w-7xl mx-auto px-8 md:px-20 text-center sm:text-start p-20 relative bg-center bg-no-repeat"
+        className="max-w-6xl mx-auto px-8 md:px-20 text-center sm:text-start p-20 relative bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/img/together.jpg')" }}
       >
         <div className="absolute inset-0 bg-red-500/65" />

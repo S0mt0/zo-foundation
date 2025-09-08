@@ -22,7 +22,7 @@ export const OurValues = () => {
 
   return (
     <section className="py-20 px-6 md:px-14">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.h3
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}

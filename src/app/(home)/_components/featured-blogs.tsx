@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-import { BlogCard } from "@/components/common/blog-card";
+import { BlogCard } from "../_components/blog-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 type Props = {
   blogsDataPromise?: Promise<ApiPaginatedResponse<IBlog> | undefined>;
@@ -12,16 +19,37 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
   if (!blogs || !blogs.length) return null;
 
   return (
-    <section className="py-20 px-6 md:px-14 bg-gray-100">
-      <div className="max-w-7xl mx-auto">
-        <h3 className="font-bold text-gray-700 text-xl uppercase mb-2 flex items-center gap-2">
-          blogs
-        </h3>
-        <div className="grid md:grid-cols-2 gap-10 my-10">
-          {blogs.map((blog) => (
-            <BlogCard {...blog} key={blog.slug} />
-          ))}
+    <section className="py-20 px-6 md:px-14">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center space-y-3 mb-10 flex flex-col items-center justify-center">
+          <h3 className="font-bold text-xl capitalize flex items-center gap-2 text-black">
+            Our latest news
+          </h3>
+          <div className="w-fit space-x-1.5">
+            {[...new Array(3)].map((_, idx) => (
+              <span
+                className="bg-primary/95 h-1 w-1 rounded-full inline-block"
+                key={idx}
+              />
+            ))}
+            <span className="w-12 h-1 rounded-full bg-primary/95 inline-block" />
+          </div>
         </div>
+
+        <Carousel opts={{ align: "start" }} className="w-full max-w-full">
+          <CarouselContent>
+            {blogs.map((blog) => (
+              <CarouselItem
+                key={blog.slug}
+                className="md:basis-1/2 lg:basis-1/3"
+              >
+                <BlogCard {...blog} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
 
         <div className="mt-16">
           <Link
@@ -35,3 +63,5 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
     </section>
   );
 };
+
+// the importance of thanksgiving and gratitude cannot be overestimated. Like they say, e too dike na nke omere eme o mekwa ozo
