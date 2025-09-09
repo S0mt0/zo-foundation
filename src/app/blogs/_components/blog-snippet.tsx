@@ -25,8 +25,8 @@ export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
       ? data.publishedAt
       : new Date();
 
-  const dayNumber = format(publishedDate, "dd");
-  const monthName = format(publishedDate, "MMM").toUpperCase();
+  const dayNumber = format(data?.publishedAt || new Date(), "dd");
+  const monthName = format(data?.publishedAt || new Date(), "MMM").toUpperCase();
 
   return (
     <Link
