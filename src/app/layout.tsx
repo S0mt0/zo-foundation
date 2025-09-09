@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-green-800">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"

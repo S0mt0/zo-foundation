@@ -24,7 +24,7 @@ export const Hero = () => {
 
   return (
     <header
-      className="h-screen bg-green-800 bg-center bg-cover bg-no-repeat overflow-hidden relative w-full p-6 md:px-14 max-h-[calc(100vh-70px)]"
+      className="h-screen bg-green-700 bg-center bg-cover bg-no-repeat overflow-hidden relative w-full p-6 md:px-14 max-h-[700px]"
       style={{
         backgroundImage: `url(${heroImages[currentImageIndex]})`,
       }}
@@ -42,15 +42,19 @@ export const Hero = () => {
         />
       </AnimatePresence>
       <div className="absolute inset-0 bg-black/60" />
-      <div className="isolate items-center h-full flex flex-col justify-center text-white pt-28 xs:pt-36 ls:py-20 text-center">
+      <div className="isolate flex flex-col justify-center text-white pt-28 xs:pt-36 ls:py-20 text-center">
         <motion.h1
           initial={{ opacity: 0, x: 200 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="md:max-w-4xl text-3xl xs:text-5xl md:text-8xl ls:text-6xl font-bold  leading-tight uppercase"
+          className="text-3xl xs:text-5xl md:text-7xl ls:text-6xl font-bold text-white mb-8 leading-tight"
         >
-          Empowering Communities For Change
+          EMPOWERING
+          <br />
+          COMMUNITIES FOR
+          <br />
+          CHANGE
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, x: -200 }}

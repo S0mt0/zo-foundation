@@ -20,7 +20,7 @@ export default async function HomePage() {
 
   return (
     <main>
-      <FixedSocials />
+      {/* <FixedSocials /> */}
       <Hero />
       <WhoWeAre />
       <OurValues />

@@ -2,7 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
-import { Tag } from "lucide-react";
+import { Calendar, Mail, Tag, User } from "lucide-react";
 import { Suspense } from "react";
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { SkeletonItems } from "@/components/common/skeleton-items";
 import { Suggestions } from "../_components/suggestions";
+import { BlogCommentForm } from "../_components/blog-comment-form";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -74,7 +75,7 @@ export default async function BlogPage({ params }: Props) {
     limit: 10,
   });
 
-  // const siteSettings = (await getSiteSettings())?.data;
+  const settingsDataPromise = getSiteSettings();
 
   if (!blog) notFound();
 
@@ -168,6 +169,35 @@ export default async function BlogPage({ params }: Props) {
                   ))}
                 </div>
               </div>
+              {/* Comments */}
+              {/* {blog?.comments.length > 0 && (
+                <div className="my-8">
+                  <div className="space-y-3">
+                    <h3 className="text-sm font-semibold text-muted-foreground">
+                      Comments
+                    </h3>
+
+                    <div className="mt-4 space-y-4 text-sm">
+                      {blog.comments.map((comment, idx) => (
+                        <div className="space-y-1" key={idx}>
+                          <p className="text-sm">{comment.comment}</p>
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1 text-xs">
+                              <User className="h-3 w-3" />
+                              {comment.authorName}
+                            </div>
+
+                            <div className="flex items-center gap-1 text-xs">
+                              <Calendar className="h-3 w-3" />
+                              {format(comment.createdAt, "MMMM d, yyyy")}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )} */}
             </div>
           </article>
 
@@ -175,6 +205,13 @@ export default async function BlogPage({ params }: Props) {
             <Suggestions
               blogsDataPromise={blogsDataPromise}
               currentBlogSlug={blog.slug}
+            />
+          </Suspense>
+
+          <Suspense fallback={<div />}>
+            <BlogCommentForm
+              settingsDataPromise={settingsDataPromise}
+              blogId={blog.id}
             />
           </Suspense>
         </div>

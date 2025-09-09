@@ -7,7 +7,7 @@ import * as z from "zod";
 
 import { Button } from "../ui/button";
 import { sendMessageAction } from "@/lib/actions/message";
-import { messageSchema } from "@/lib/schema/message";
+import { MessageSchema } from "@/lib/schema/message";
 import {
   Form,
   FormControl,
@@ -22,8 +22,8 @@ import { Textarea } from "../ui/textarea";
 export const ContactForm = () => {
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<z.infer<typeof messageSchema>>({
-    resolver: zodResolver(messageSchema),
+  const form = useForm<z.infer<typeof MessageSchema>>({
+    resolver: zodResolver(MessageSchema),
     defaultValues: {
       sender: "",
       email: "",
@@ -32,7 +32,7 @@ export const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof messageSchema>) {
+  function onSubmit(values: z.infer<typeof MessageSchema>) {
     startTransition(() => {
       sendMessageAction(values)
         .then((res) => {
@@ -139,7 +139,7 @@ export const ContactForm = () => {
 
         <Button
           type="submit"
-          className="font-semibold hover:scale-110 transition-all"
+          className="font-semibold hover:scale-110 transition-all rounded-none"
           size="lg"
           disabled={isPending}
         >

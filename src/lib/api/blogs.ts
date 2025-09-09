@@ -18,7 +18,9 @@ export async function getBlog(
   slug: string
 ): Promise<ApiResponse<IBlog> | undefined> {
   try {
-    const res = await fetch(`${API_BASE_URL}/blogs/${slug}`);
+    const res = await fetch(`${API_BASE_URL}/blogs/${slug}`, {
+      next: { tags: [slug] },
+    });
 
     if (!res.ok) return undefined;
 

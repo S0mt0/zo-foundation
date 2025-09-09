@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const messageSchema = z.object({
+export const MessageSchema = z.object({
   sender: z
     .string({ message: "Name is required" })
     .min(3, { message: "Name is required" })

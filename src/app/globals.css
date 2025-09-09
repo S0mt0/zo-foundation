@@ -69,9 +69,4 @@ body {
   body {
     @apply bg-white text-muted-foreground;
   }
-
-  ol,
-  ul {
-    @apply pl-12 list-outside;
-  }
 }
