@@ -37,12 +37,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={cn(
-          "antialiased w-full overflow-x-hidden",
-          montserrat.className
-        )}
-      >
+      <body className={cn("antialiased w-full", montserrat.className)}>
         <Analytics />
         <Toaster position="top-right" reverseOrder />
         <Navbar />

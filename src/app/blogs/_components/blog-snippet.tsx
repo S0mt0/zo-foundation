@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import type React from "react";
-
 import { format } from "date-fns";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 interface BlogSnippetProps {
   bannerImage: string;
@@ -11,7 +11,6 @@ interface BlogSnippetProps {
   slug: string;
   title: string;
   tags: string[];
-  comments?: Record<string, any>[];
   publishedAt: Date;
 }
 
@@ -28,12 +27,11 @@ export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
 
   const dayNumber = format(publishedDate, "dd");
   const monthName = format(publishedDate, "MMM").toUpperCase();
-  const commentCount = data.comments?.length || 0;
 
   return (
     <Link
       href={`/blogs/${data.slug}`}
-      className="bg-white shadow-sm border border-gray-100 overflow-hidden"
+      className="shadow-sm border border-gray-100 overflow-hidden"
     >
       <div className="relative">
         <Image
@@ -61,23 +59,21 @@ export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
         {/* Main Content */}
         <div className="flex-1 p-6">
           {/* Title */}
-          <h2 className="text-xl font-bold text-gray-900 mb-4 leading-tight capitalize">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 leading-tight capitalize hover:text-orange-500">
             {data.title}
           </h2>
 
           {/* Metadata */}
-          <div className="flex flex-wrap gap-8 text-sm text-gray-500 mb-4">
+          <div className="flex flex-wrap gap-8 text-sm mb-4">
             <div>
-              <span className="font-medium">Posted by</span>
+              <div className="font-medium text-gray-500">Posted by</div>
+              <div className="font-extrabold text-black">Admin</div>
             </div>
+            {/* <Separator orientation="vertical" /> */}
             <div>
-              <span className="font-medium">Categories</span>
-              <div className="font-normal">{data?.tags?.join(", ")}</div>
-            </div>
-            <div>
-              <span className="font-medium">Comments</span>
-              <div className="font-normal">
-                {commentCount} Comment{commentCount !== 1 ? "s" : ""}
+              <div className="font-medium text-gray-500">Categories</div>
+              <div className="font-extrabold text-black capitalize">
+                {data?.tags?.join(", ")}
               </div>
             </div>
           </div>

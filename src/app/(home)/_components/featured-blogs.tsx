@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { BlogCard } from "../_components/blog-card";
+import { BlogCard } from "../../../components/common/blog-card";
 import {
   Carousel,
   CarouselContent,

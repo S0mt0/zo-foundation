@@ -1,22 +1,22 @@
 "use client";
-
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDebounceValue } from "usehooks-ts";
 
 import { Input } from "../ui/input";
-import { QuickCTALinks } from "./quick-cta-links";
-import { SocialShareButtons } from "./social-share-buttons";
+import { cn } from "@/lib/utils";
 
-export const SideBarWithSearchInput = ({
+export const SearchInput = ({
   search = "",
-  shareButtonTitle,
+  pathName,
   placeholder,
+  className,
 }: {
   search?: string;
   placeholder?: string;
-  shareButtonTitle?: string;
+  className?: string;
+  pathName: string;
 }) => {
   const searchParamsObj = useSearchParams();
   const router = useRouter();
@@ -37,7 +37,7 @@ export const SideBarWithSearchInput = ({
 
     // Reset to page 1 when filters change
     params.delete("page");
-    router.push(`/blogs?${params.toString()}`);
+    router.push(`/${pathName}?${params.toString()}`);
   };
 
   const handleSearch = (value: string) => {
@@ -49,18 +49,14 @@ export const SideBarWithSearchInput = ({
   }, [debouncedSearchTerm]);
 
   return (
-    <div className="sticky top-10 gap-10 flex flex-col-reverse md:flex-col">
-      <div className="w-full relative">
-        <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-        <Input
-          placeholder={placeholder}
-          defaultValue={search}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="pr-10 w-full rounded-none focus-visible:ring-primary"
-        />
-      </div>
-      <QuickCTALinks />
-      <SocialShareButtons title={shareButtonTitle} />
+    <div className={cn("w-full relative", className)}>
+      <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+      <Input
+        placeholder={placeholder}
+        defaultValue={search}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="pr-10 w-full rounded-none focus-visible:ring-primary"
+      />
     </div>
   );
 };

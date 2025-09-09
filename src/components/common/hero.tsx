@@ -19,11 +19,11 @@ export const Hero = ({
     >
       <div
         className={cn(
-          "absolute inset-0 bg-red-500/50 p-10 px-6 md:px-14",
+          "absolute inset-0 bg-red-500/50 p-10 px-4 md:px-14",
           className
         )}
       >
-        <div className="max-w-5xl mx-auto h-full w-full flex items-center">
+        <div className="max-w-6xl mx-auto h-full w-full flex items-center">
           <motion.div
             initial={{ opacity: 0, x: 150 }}
             whileInView={{ opacity: 1, x: 0 }}

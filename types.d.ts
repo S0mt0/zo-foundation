@@ -91,6 +91,15 @@ interface IFoundationInfo {
   updatedAt: Date;
 }
 
+interface IWebsiteSettings {
+  id: string;
+  maintenanceMode: boolean;
+  blogComments: boolean;
+  eventRegistration: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 interface ApiResponse<T> {
   message: string;
   data?: T;

@@ -13,7 +13,7 @@ interface AllBlogsQuery {
 export const getAllBlogs = (query?: AllBlogsQuery) =>
   apiFetch<ApiPaginatedResponse<IBlog>>("/blogs", query as any);
 
-/** Get single blog bt slug */
+/** Get single blog by slug */
 export async function getBlog(
   slug: string
 ): Promise<ApiResponse<IBlog> | undefined> {
