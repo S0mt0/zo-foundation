@@ -69,7 +69,6 @@ export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
               <div className="font-medium text-gray-500">Posted by</div>
               <div className="font-extrabold text-black">Admin</div>
             </div>
-            {/* <Separator orientation="vertical" /> */}
             <div>
               <div className="font-medium text-gray-500">Categories</div>
               <div className="font-extrabold text-black capitalize">
@@ -86,7 +85,7 @@ export const BlogSnippet = ({ ...data }: BlogSnippetProps) => {
           {/* Read More Button */}
           <Link
             href={`/blogs/${data.slug}`}
-            className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 rounded transition-colors duration-200"
+            className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-2 transition-colors duration-200"
           >
             READ MORE
           </Link>
