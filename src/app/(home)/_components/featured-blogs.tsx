@@ -37,11 +37,11 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
         </div>
 
         <Carousel opts={{ align: "start" }} className="w-full max-w-full">
-          <CarouselContent>
+          <CarouselContent className="-ml-8">
             {blogs.map((blog) => (
               <CarouselItem
                 key={blog.slug}
-                className="md:basis-1/2 lg:basis-1/3"
+                className="md:basis-1/2 lg:basis-1/3 pl-8"
               >
                 <BlogCard {...blog} />
               </CarouselItem>
@@ -54,7 +54,7 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
         <div className="mt-16">
           <Link
             href="/blogs"
-            className="bg-primary text-white py-6 px-10 font-bold"
+            className="bg-orange-500 hover:bg-orange-500/95 transition-colors text-white py-5 px-10 font-bold"
           >
             View more
           </Link>
@@ -63,5 +63,3 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
     </section>
   );
 };
-
-// the importance of thanksgiving and gratitude cannot be overestimated. Like they say, e too dike na nke omere eme o mekwa ozo

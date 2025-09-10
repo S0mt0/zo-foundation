@@ -17,7 +17,7 @@ interface IBlog {
   status: BlogStatus;
   featured: boolean;
   tags: string[];
-  comments: IComment[];
+  comments: IBlogComment[];
   views: number;
   createdBy: string;
   authorId?: string | null;
@@ -27,7 +27,7 @@ interface IBlog {
   author?: IUser | null;
 }
 
-interface IComment {
+interface IBlogComment {
   id: string;
   comment: string;
   authorName: string;
@@ -38,7 +38,25 @@ interface IComment {
   updatedAt: Date;
 }
 
-type EventStatus = "upcoming" | "draft" | "completed" | "cancelled";
+interface IEventComment {
+  id: string;
+  comment: string;
+  authorName: string;
+  authorEmail: string;
+  eventId: string;
+  event?: IEvent;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+type EventStatus =
+  | "upcoming"
+  | "draft"
+  | "completed"
+  | "cancelled"
+  | "happening";
+
+type PublicEventStatus = "upcoming" | "completed" | "happening";
 
 interface IEvent {
   id: string;

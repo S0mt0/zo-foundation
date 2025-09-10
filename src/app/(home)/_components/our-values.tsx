@@ -30,7 +30,7 @@ export const OurValues = () => {
           className="font-bold text-xl uppercase mb-2 flex items-center gap-2"
         >
           <div>
-            <span className="text-green-400">Our</span> Values
+            <span className="text-primary">Our</span> Values
           </div>
           <Sprout className="text-gray-500/60" />
         </motion.h3>
@@ -85,7 +85,7 @@ export const OurValues = () => {
 
                 <Link
                   href="/contact"
-                  className="mt-10 py-2 px-4 bg-primary font-semibold uppercase shadow-lg hover:bg-primary/90 text-sm whitespace-nowrap"
+                  className="mt-10 py-2 px-4 bg-orange-500 hover:bg-orange-500/95 transition-colors font-semibold uppercase shadow-lg text-sm whitespace-nowrap"
                 >
                   Volunteer Today
                 </Link>

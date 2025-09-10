@@ -1,19 +1,39 @@
 import { API_BASE_URL } from "../constants";
+import { apiFetch } from "./util";
 
-export async function getAllEvents(
-  query: Record<string, any> = { fields: "-more_details" }
-): Promise<any | undefined> {
-  const url = new URL(`${API_BASE_URL}/events`);
+interface AllEventsQuery {
+  page?: number;
+  limit?: number;
+  status?: PublicEventStatus[];
+  search?: string;
+  fields?: (keyof IEvent)[];
+  featured?: "all" | "featured" | "not-featured";
+}
 
-  Object.keys(query).forEach((key) => {
-    if (query[key] !== undefined && query[key] !== null) {
-      url.searchParams.append(key, query[key]);
-    }
-  });
+/** Fetch all events */
+export const getAllEvents = ({
+  status = ["completed", "happening", "upcoming"],
+  ...query
+}: AllEventsQuery = {}) =>
+  apiFetch<ApiPaginatedResponse<IEvent>>("/events", {
+    status: status?.join(","),
+    ...query,
+  } as any);
 
-  const res = await fetch(url.toString());
+/** Get single event by slug */
+export async function getEvent(
+  slug: string
+): Promise<ApiResponse<IEvent> | undefined> {
+  try {
+    const res = await fetch(`${API_BASE_URL}/events/${slug}`, {
+      next: { tags: [slug] },
+    });
 
-  if (!res.ok) return undefined;
+    if (!res.ok) return undefined;
 
-  return res.json().then((data) => data?.data);
+    return await res.json();
+  } catch (error) {
+    console.log("error fetching event: ", error);
+    return undefined;
+  }
 }

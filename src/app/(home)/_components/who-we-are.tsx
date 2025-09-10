@@ -35,7 +35,7 @@ export const WhoWeAre = () => {
           growth, equality, and sustainability.
           <Link
             href="/who-we-are"
-            className=" text-red-600 hover:text-blue-600 underline ml-4 underline-offset-2 whitespace-nowrap"
+            className=" text-orange-500 hover:text-blue-600 underline ml-4 underline-offset-2 whitespace-nowrap"
           >
             READ MORE
           </Link>
