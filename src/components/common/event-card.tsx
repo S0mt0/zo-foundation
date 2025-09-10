@@ -24,7 +24,7 @@ export const EventCard = ({
   className?: string;
 }) => {
   const today = new Date();
-  const eventDate = date || today;
+  const eventDate = new Date(date || today);
   const dayNumber = format(eventDate, "dd");
   const monthName = format(eventDate, "MMM").toUpperCase();
 

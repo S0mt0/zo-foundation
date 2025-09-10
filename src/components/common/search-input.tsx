@@ -1,7 +1,7 @@
 "use client";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDebounceValue } from "usehooks-ts";
 
 import { Input } from "../ui/input";
@@ -44,10 +44,31 @@ export const SearchInput = ({
     updateSearchParams({ search: value });
   };
 
+  // const handleSearch = useCallback(
+  //   (updates: Record<string, string | undefined>) => {
+  //     const params = new URLSearchParams(searchParamsObj);
+
+  //     Object.entries(updates).forEach(([key, value]) => {
+  //       if (value === undefined || value === "") {
+  //         params.delete(key);
+  //       } else {
+  //         params.set(key, value);
+  //       }
+  //     });
+
+  //     // Reset to page 1 when filters change
+  //     params.delete("page");
+  //     router.push(`/${pathName}?${params.toString()}`);
+  //   },
+  //   [pathName, router,  searchParamsObj]
+  // );
+
   useEffect(() => {
     handleSearch(debouncedSearchTerm);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchTerm]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <div className={cn("w-full relative", className)}>
       <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
