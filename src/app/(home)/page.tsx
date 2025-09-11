@@ -9,6 +9,8 @@ import { FeaturedBlogs } from "./_components/featured-blogs";
 import { SkeletonItems } from "@/components/common/skeleton-items";
 import { FeaturedEvents } from "./_components/featured-events";
 
+export const revalidate = 0;
+
 export default async function HomePage() {
   const blogsDataPromise = getAllBlogs({
     fields: ["bannerImage", "title", "slug", "excerpt", "publishedAt"],
