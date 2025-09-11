@@ -119,7 +119,7 @@ export default async function BlogPage({ params }: Props) {
                 <div className="font-medium text-gray-500 text-sm">
                   Categories
                 </div>
-                <div className="space-x-2">
+                <div className="gap-2 flex flex-wrap">
                   {blog.tags.map((tag, idx) => (
                     <Link
                       key={idx}
