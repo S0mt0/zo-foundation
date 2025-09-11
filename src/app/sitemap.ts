@@ -13,19 +13,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}/who-we-are`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/events`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "daily",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/blogs`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "always",
       priority: 0.8,
     },
     {
