@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn, formatTime, getStatusColor } from "@/lib/utils";
-import { Badge } from "../ui/badge";
 
 export const EventCard = ({
   slug,
@@ -19,8 +18,10 @@ export const EventCard = ({
   startTime,
   endTime,
   status,
+  showExpired = false,
 }: IEvent & {
   showExcerpt?: boolean;
+  showExpired?: boolean;
   className?: string;
 }) => {
   const today = new Date();
@@ -37,15 +38,15 @@ export const EventCard = ({
         className
       )}
     >
-      <div className="flex flex-col-reverse sm:flex-row">
-        <div className="">
+      <div className="flex flex-col-reverse md:flex-row w-full">
+        <div className="flex-1">
           <div className="flex-shrink-0 bg-stone-100 text-orange-500 p-6 flex flex-col items-center justify-center min-w-[120px]">
             <div className="text-4xl font-bold leading-none">{dayNumber}</div>
             <div className="text-sm font-medium mt-1">{monthName}</div>
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 p-6 flex flex-col justify-between gap-10">
+          <div className="flex-1 p-6 flex flex-col justify-between gap-6 h-full max-h-full">
             <div className="flex-1">
               <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-orange-600 transition-colors">
                 {name}
@@ -70,13 +71,13 @@ export const EventCard = ({
               </div>
 
               {excerpt && showExcerpt && (
-                <p className="text-gray-700 text-sm line-clamp-3 leading-relaxed">
+                <p className="text-gray-700 text-sm line-clamp-2 leading-relaxed">
                   {excerpt}
                 </p>
               )}
             </div>
 
-            <div className="mt-auto">
+            <div className="mt-auto mb-4 flex-1">
               <span
                 className={cn(
                   "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium border uppercase",
@@ -90,13 +91,23 @@ export const EventCard = ({
         </div>
 
         {/* Promotional Image/Banner Area */}
-        <div className="flex-shrink-0 w-full max-w-72 md:max-w-96 relative overflow-hidden">
+        <div className="w-full h-full shrink-0 md:max-w-96 overflow-hidden relative">
+          <div
+            className={cn(
+              "hidden absolute inset-0 bg-black/50  items-center justify-center",
+              status === "completed" && showExpired && "flex"
+            )}
+          >
+            <p className="text-xl text-red-600 font-bold bg-white w-full py-6 px-3 text-center">
+              This event has expired
+            </p>
+          </div>
           <Image
             src={bannerImage}
             alt={name}
             width={320}
             height={200}
-            className="w-full h-full aspect-video object-cover group-hover:scale-105 transition-transform duration-200"
+            className="w-full max-h-full block object-cover group-hover:scale-105 transition-transform duration-200"
             priority
           />
         </div>

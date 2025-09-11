@@ -2,15 +2,12 @@ import { Suspense } from "react";
 
 import { getAllBlogs, getAllEvents } from "@/lib/api";
 import { CTABanner } from "./_components/cta-banner";
-import { FixedSocials } from "./_components/fixed-socials";
 import { Hero } from "./_components/hero";
 import { OurValues } from "./_components/our-values";
 import { WhoWeAre } from "./_components/who-we-are";
 import { FeaturedBlogs } from "./_components/featured-blogs";
 import { SkeletonItems } from "@/components/common/skeleton-items";
 import { FeaturedEvents } from "./_components/featured-events";
-
-export const revalidate = 0;
 
 export default async function HomePage() {
   const blogsDataPromise = getAllBlogs({
@@ -35,7 +32,6 @@ export default async function HomePage() {
 
   return (
     <main>
-      {/* <FixedSocials /> */}
       <Hero />
       <WhoWeAre />
       <OurValues />

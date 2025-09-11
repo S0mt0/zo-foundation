@@ -15,10 +15,8 @@ export const metadata: Metadata = {
     template: "Blogs & Updates | %s",
   },
   description:
-    "Stay informed with the latest news, success stories, and updates from the Zita-Onyeka Foundation. Learn how we’re making a difference in the lives of women, youth, and communities.",
+    "Stay informed with the latest news, success stories, and updates from the Zita-Onyeka Foundation. Learn how we're making a difference in the lives of women, youth, and communities.",
 };
-
-export const dynamic = "force-dynamic";
 
 export default async function BlogsPage(props: {
   searchParams: Promise<{
@@ -56,7 +54,6 @@ export default async function BlogsPage(props: {
           pathName="blogs"
           search={search}
           placeholder="Search for blogs here..."
-          className=""
         />
       </div>
       <section className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-10 gap-16 py-20 pt-10 lg:pt-20 px-4 xl:px-0">
@@ -85,7 +82,7 @@ export default async function BlogsPage(props: {
               itemName="blog posts"
               limit={response.pagination.limit}
             />
-          )}{" "}
+          )}
         </div>
 
         <div className="md:col-span-3 relative">

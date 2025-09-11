@@ -24,7 +24,7 @@ export const FeaturedEvents = async ({ eventsDataPromise }: Props) => {
 
         <div className="w-full grid gap-6">
           {events.map((event) => (
-            <EventCard key={event.slug} {...event} showExcerpt />
+            <EventCard key={event.slug} {...event} />
           ))}
         </div>
 
