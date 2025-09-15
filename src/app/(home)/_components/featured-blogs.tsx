@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 type Props = {
   blogsDataPromise?: Promise<ApiPaginatedResponse<IBlog> | undefined>;
@@ -37,7 +38,12 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
         </div>
 
         <Carousel opts={{ align: "start" }} className="w-full max-w-full">
-          <CarouselContent className="-ml-8">
+          <CarouselContent
+            className={cn(
+              "-ml-8 items-center",
+              blogs.length <= 2 && "justify-center"
+            )}
+          >
             {blogs.map((blog) => (
               <CarouselItem
                 key={blog.slug}
@@ -51,7 +57,7 @@ export const FeaturedBlogs = async ({ blogsDataPromise }: Props) => {
           <CarouselNext />
         </Carousel>
 
-        <div className="mt-16">
+        <div className="mt-16 text-center">
           <Link
             href="/blogs"
             className="bg-orange-500 hover:bg-orange-500/95 transition-colors text-white py-5 px-10 font-bold"
